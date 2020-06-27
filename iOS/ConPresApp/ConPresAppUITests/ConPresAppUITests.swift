@@ -2,8 +2,8 @@
 //  ConPresAppUITests.swift
 //  ConPresAppUITests
 //
-//  Created by AIS Digital on 26/06/20.
-//  Copyright © 2020 AIS Digital. All rights reserved.
+//  Created by Douglas Tonetto Pfeifer on 26/06/20.
+//  Copyright © 2020 Douglas Tonetto Pfeifer. All rights reserved.
 //
 
 import XCTest
