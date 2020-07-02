@@ -8,5 +8,6 @@ target 'ConPresApp' do
   pod 'RxCocoa', '~> 5'
   pod 'Firebase/Analytics'
   pod 'Firebase/Crashlytics'
-  pod "Firebase/Messaging"
+  pod 'Firebase/Messaging'
+  pod 'SideMenuSwift'
 end

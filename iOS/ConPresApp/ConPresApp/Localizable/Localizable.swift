@@ -10,4 +10,9 @@ import Foundation
 
 enum Localizable {
     
+    enum Menu {
+        static let main = NSLocalizedString("Início", comment: "A menu item for the main app screen.")
+        static let first = NSLocalizedString("First Item X", comment: "X.")
+        static let second = NSLocalizedString("Second Item Y", comment: "Y.")
+    }
 }

@@ -7,24 +7,36 @@
 //
 
 import UIKit
+import RxSwift
 
+/// The base implementation for all controllers using the app to inherit from.
 class BaseViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    // MARK: Properties
 
-        // Do any additional setup after loading the view.
+    var disposeBag = DisposeBag()
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .darkContent
     }
     
+    // MARK: Imperatives
 
-    /*
-    // MARK: - Navigation
+    override func present(
+        _ viewControllerToPresent: UIViewController,
+        animated flag: Bool,
+        completion: (() -> Void)? = nil
+    ) {
+        if #available(iOS 13, *) {
+            // Set the default presentation style to continue being full screen
+            // (iOS 13 changes it with a new animation).
+            viewControllerToPresent.modalPresentationStyle = .fullScreen
+        }
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        super.present(
+            viewControllerToPresent,
+            animated: flag,
+            completion: completion
+        )
     }
-    */
-
 }

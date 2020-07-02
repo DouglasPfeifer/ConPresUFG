@@ -12,19 +12,35 @@ class BaseNavigationViewController: UINavigationController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        setupNavigationBar()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    var statusBarStyle: UIStatusBarStyle = .darkContent {
+        didSet {
+            setNeedsStatusBarAppearanceUpdate()
+        }
     }
-    */
-
+    
+    private func setupNavigationBar() {
+        self.navigationBar.barTintColor = UIColor.white
+        self.navigationBar.tintColor = UIColor.black
+        self.title = "NAVBAR"
+//        self.navigationBar.backIndicatorImage = UIImage(named: "ic_arrow_back")
+//        self.navigationBar.backIndicatorTransitionMaskImage = UIImage(named: "ic_arrow_back")
+//        let backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+//        self.navigationItem.backBarButtonItem = backBarButtonItem
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return statusBarStyle
+    }
+    
+    func removeNavigationBottomLine() {
+        DispatchQueue.main.async {
+            let navigationBar = self.navigationBar
+            navigationBar.setBackgroundImage(UIImage(), for: .default)
+            navigationBar.shadowImage = UIImage()
+        }
+    }
 }
