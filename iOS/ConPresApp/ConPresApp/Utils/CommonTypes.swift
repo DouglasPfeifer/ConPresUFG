@@ -12,15 +12,26 @@ enum StoryboardName: String {
     case login = "Login"
     case home = "Home"
     case sideMenu = "SideMenu"
-    case firstItem = "FirstItem"
-    case secondItem = "SecondItem"
+    case studentClass = "StudentClass"
+    case teacherClass = "TeacherClass"
 }
 
 enum StoryboardIdentifier: String {
+    // ViewControllers
     case navigationController = "navigationController"
     case loginViewController = "loginViewController"
     case homeViewController = "homeViewController"
     case sideMenuViewController = "sideMenuViewController"
-    case firstItemViewController = "firstItemViewController"
-    case secondItemViewController = "secondItemViewController"
+    case studentClassPasswordViewController = "studentClassPasswordViewController"
+    case teacherClassViewController = "teacherClassViewController"
+    
+    // Cells
+    case sideMenuCell = "sideMenuCell"
+    case homeCell = "homeCell"
+    
+    // Segues
+    case showHomeSegue = "showHomeSegue"
+    case showAskStudentClassPasswordSegue = "showAskStudentClassPasswordSegue"
+    case showStudentClassSegue = "showStudentClassSegue"
+    case showTeacherClassSegue = "showTeacherClassSegue"
 }

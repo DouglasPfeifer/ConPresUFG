@@ -15,4 +15,46 @@ enum Localizable {
         static let first = NSLocalizedString("First Item X", comment: "X.")
         static let second = NSLocalizedString("Second Item Y", comment: "Y.")
     }
+    
+    enum DaysOfTheWeek {
+        static let sunday = "Domingo"
+        static let monday = "Segunda"
+        static let tuesdday = "Terça"
+        static let wednesday = "Quarta"
+        static let thursday = "Quinta"
+        static let friday = "Sexta"
+        static let saturday = "Sábado"
+    }
+    
+    enum PeriodsOfTheDay {
+        static let morning = "Manhã"
+        static let afternoon = "Tarde"
+        static let night = "Noite"
+    }
+    
+    enum MorningHours {
+        static let one = "7:10"
+        static let two = "8:00"
+        static let three = "8:50"
+        static let four = "10:00"
+        static let five = "10:50"
+        static let six = "12:00"
+    }
+    
+    enum AfternoonHours {
+        static let one = "13:10"
+        static let two = "14:00"
+        static let three = "14:50"
+        static let four = "16:00"
+        static let five = "16:50"
+        static let six = "17:00"
+    }
+    
+    enum NightHours {
+        static let one = "18:05"
+        static let two = "18:50"
+        static let three = "19:35"
+        static let four = "20:30"
+        static let five = "21:15"
+    }
 }

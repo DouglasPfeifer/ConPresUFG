@@ -7,10 +7,7 @@
 //
 
 import Foundation
-import RxSwift
 
 class LoginViewModel {
-    
-    var disposeBag = DisposeBag()
-    
+        
 }

@@ -10,7 +10,7 @@ import Foundation
 
 extension UserDefaults {
 
-    // MARK: Properties
+    // MARK: Variables
 
     /// Flag informing if the app was already launched for the first time.
     static var wasAppLaunched: Bool {
@@ -19,6 +19,15 @@ extension UserDefaults {
         }
         get {
             return UserDefaults.standard.bool(forKey: "isAppAlreadyLaunchedOnce")
+        }
+    }
+    
+    static var UserType: Int {
+        set {
+            UserDefaults.standard.set(newValue, forKey: "userType")
+        }
+        get {
+            return UserDefaults.standard.integer(forKey: "userType")
         }
     }
 }

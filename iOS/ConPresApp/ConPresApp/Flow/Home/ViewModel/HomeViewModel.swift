@@ -7,10 +7,12 @@
 //
 
 import Foundation
-import RxSwift
 
 class HomeViewModel {
     
-    var disposeBag = DisposeBag()
-    
+    func getDayOfTheWeek (weekDay: Int) -> String {
+        let weekDayString = DateUtil.getCurrentWeekDay(day: weekDay)
+        let dayMonthWeekString = DateUtil.getDayMonthYear(day: weekDay)
+        return "\(weekDayString) - \(dayMonthWeekString)"
+    }
 }

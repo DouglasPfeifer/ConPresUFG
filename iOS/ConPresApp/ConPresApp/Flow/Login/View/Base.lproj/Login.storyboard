@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -19,22 +19,44 @@
                                 <rect key="frame" x="188" y="60" width="38" height="30"/>
                                 <state key="normal" title="Login"/>
                                 <connections>
-                                    <action selector="loginAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MGz-sw-wM8"/>
+                                    <action selector="loginAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="YGK-yE-3Ry"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HPD-cM-qX2">
+                                <rect key="frame" x="174.5" y="438" width="65" height="30"/>
+                                <state key="normal" title="UserType"/>
+                                <connections>
+                                    <action selector="setUserTypeAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="U66-IK-LSq"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="P0a-6e-SJe" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="6vI-YM-NI8"/>
+                            <constraint firstItem="HPD-cM-qX2" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="7NO-zJ-jAw"/>
                             <constraint firstItem="P0a-6e-SJe" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="Znd-oc-jgE"/>
+                            <constraint firstItem="HPD-cM-qX2" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="gR8-O8-bYt"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="IhO-ex-kMO"/>
+                    <connections>
+                        <segue destination="awU-aD-2mB" kind="show" identifier="showHomeSegue" id="rvw-0O-TjU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="139" y="138"/>
+        </scene>
+        <!--Home-->
+        <scene sceneID="S1I-Ep-uN2">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Home" id="awU-aD-2mB" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="meh-2j-rzt"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="U0o-qj-gzM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="796" y="138"/>
         </scene>
     </scenes>
 </document>
