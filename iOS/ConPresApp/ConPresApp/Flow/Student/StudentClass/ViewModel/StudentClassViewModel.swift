@@ -9,8 +9,9 @@
 import Foundation
 import CoreLocation
 import MapKit
+import Moya
 
-class StudentClassViewModel: NSObject, CLLocationManagerDelegate {
+class StudentClassViewModel: BaseViewModel, CLLocationManagerDelegate {
     
     // MARK: Variables
     let locationManager = CLLocationManager()
@@ -52,6 +53,37 @@ class StudentClassViewModel: NSObject, CLLocationManagerDelegate {
         print(locationManager.location)
     }
     
-    // MARK: Time and Date
+    // MARK: Device ID
+    func getDeviceID() {
+        let uuid = getUUID()
+        print("UUID: \(uuid)")
+    }
+    
+    // MARK: Attendance
+    func registerAttendance() {
+        getDeviceID()
+    }
+    
+    // MARK: Requests
+    func genericRequestExample() {
+        let provider = MoyaProvider<NetworkingService>()
+        provider.request(.createUser(firstName: "James", lastName: "Potter")) { result in
+            // do something with the result (read on for more details)
+        }
 
+        // The full request will result to the following:
+        // POST https://api.myservice.com/users
+        // Request body:
+        // {
+        //   "first_name": "James",
+        //   "last_name": "Potter"
+        // }
+
+        provider.request(.updateUser(id: 123, firstName: "Harry", lastName: "Potter")) { result in
+            // do something with the result (read on for more details)
+        }
+
+        // The full request will result to the following:
+        // POST https://api.myservice.com/users/123?first_name=Harry&last_name=Potter
+    }
 }

@@ -39,8 +39,9 @@
 		A444950D24AE9C6B006FF70A /* Aula.swift in Sources */ = {isa = PBXBuildFile; fileRef = A444950C24AE9C6B006FF70A /* Aula.swift */; };
 		A458647324C036BD0044DA2C /* StudentClassViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A458647224C036BD0044DA2C /* StudentClassViewModel.swift */; };
 		A458647524C036CE0044DA2C /* StudentClassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A458647424C036CE0044DA2C /* StudentClassViewController.swift */; };
-		A4C6C0C124C04ABB00D1CAAE /* BaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C6C0C024C04ABB00D1CAAE /* BaseService.swift */; };
-		A4C6C0C324C04B4F00D1CAAE /* ServiceConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C6C0C224C04B4F00D1CAAE /* ServiceConstants.swift */; };
+		A4BC53C724C0586800ECB57B /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BC53C624C0586800ECB57B /* BaseViewModel.swift */; };
+		A4BC53C924C05C0700ECB57B /* KeychainAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BC53C824C05C0700ECB57B /* KeychainAccess.swift */; };
+		A4C6C0C124C04ABB00D1CAAE /* NetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C6C0C024C04ABB00D1CAAE /* NetworkingService.swift */; };
 		A4D3FB0F24BFF5D600A7F13D /* DateConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D3FB0E24BFF5D600A7F13D /* DateConverter.swift */; };
 		A4D3FB1124BFFD8A00A7F13D /* String+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D3FB1024BFFD8A00A7F13D /* String+Util.swift */; };
 		A4F0A69524AFD9F700FEFB0B /* TimeConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F0A69424AFD9F700FEFB0B /* TimeConverter.swift */; };
@@ -103,8 +104,9 @@
 		A444950C24AE9C6B006FF70A /* Aula.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Aula.swift; sourceTree = "<group>"; };
 		A458647224C036BD0044DA2C /* StudentClassViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentClassViewModel.swift; sourceTree = "<group>"; };
 		A458647424C036CE0044DA2C /* StudentClassViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentClassViewController.swift; sourceTree = "<group>"; };
-		A4C6C0C024C04ABB00D1CAAE /* BaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseService.swift; sourceTree = "<group>"; };
-		A4C6C0C224C04B4F00D1CAAE /* ServiceConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceConstants.swift; sourceTree = "<group>"; };
+		A4BC53C624C0586800ECB57B /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
+		A4BC53C824C05C0700ECB57B /* KeychainAccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainAccess.swift; sourceTree = "<group>"; };
+		A4C6C0C024C04ABB00D1CAAE /* NetworkingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingService.swift; sourceTree = "<group>"; };
 		A4D3FB0E24BFF5D600A7F13D /* DateConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateConverter.swift; sourceTree = "<group>"; };
 		A4D3FB1024BFFD8A00A7F13D /* String+Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Util.swift"; sourceTree = "<group>"; };
 		A4F0A69424AFD9F700FEFB0B /* TimeConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeConverter.swift; sourceTree = "<group>"; };
@@ -358,6 +360,7 @@
 		A428E4DE24A6A17000123AEC /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				A4BC53C624C0586800ECB57B /* BaseViewModel.swift */,
 				A428E4E124A6B35500123AEC /* BaseViewController.swift */,
 				A444950424AE93FD006FF70A /* BaseNavigationViewController.swift */,
 			);
@@ -477,8 +480,7 @@
 		A4C6C0BF24C049D500D1CAAE /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				A4C6C0C024C04ABB00D1CAAE /* BaseService.swift */,
-				A4C6C0C224C04B4F00D1CAAE /* ServiceConstants.swift */,
+				A4C6C0C024C04ABB00D1CAAE /* NetworkingService.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -496,6 +498,7 @@
 			children = (
 				A4F0A69424AFD9F700FEFB0B /* TimeConverter.swift */,
 				A4D3FB0E24BFF5D600A7F13D /* DateConverter.swift */,
+				A4BC53C824C05C0700ECB57B /* KeychainAccess.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -699,13 +702,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				A428E4B224A697E200123AEC /* LoginViewController.swift in Sources */,
-				A4C6C0C324C04B4F00D1CAAE /* ServiceConstants.swift in Sources */,
 				A428E4E224A6B35500123AEC /* BaseViewController.swift in Sources */,
 				A420F45D24AA533100393F74 /* UIStoryboard+Util.swift in Sources */,
 				A444950524AE93FD006FF70A /* BaseNavigationViewController.swift in Sources */,
 				A428E4AE24A697E200123AEC /* AppDelegate.swift in Sources */,
 				A444950D24AE9C6B006FF70A /* Aula.swift in Sources */,
 				A458647524C036CE0044DA2C /* StudentClassViewController.swift in Sources */,
+				A4BC53C924C05C0700ECB57B /* KeychainAccess.swift in Sources */,
+				A4BC53C724C0586800ECB57B /* BaseViewModel.swift in Sources */,
 				A420F46124AA54D600393F74 /* HomeViewController.swift in Sources */,
 				A420F49924AD12B100393F74 /* TeacherClassViewModel.swift in Sources */,
 				A444950324AE69E7006FF70A /* SideMenuTableViewController.swift in Sources */,
@@ -722,7 +726,7 @@
 				A444950A24AE99DD006FF70A /* SideMenuTableViewCell.swift in Sources */,
 				A444950724AE99C3006FF70A /* HomeTableViewCell.swift in Sources */,
 				A4D3FB1124BFFD8A00A7F13D /* String+Util.swift in Sources */,
-				A4C6C0C124C04ABB00D1CAAE /* BaseService.swift in Sources */,
+				A4C6C0C124C04ABB00D1CAAE /* NetworkingService.swift in Sources */,
 				A420F46324AA54EB00393F74 /* HomeViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

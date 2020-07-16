@@ -8,7 +8,7 @@
 
 import Foundation
 
-class TeacherClassViewModel {
+class TeacherClassViewModel: BaseViewModel {
     // MARK: Variables
     
 }

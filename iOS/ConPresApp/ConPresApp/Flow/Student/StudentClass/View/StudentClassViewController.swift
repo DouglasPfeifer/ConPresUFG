@@ -36,6 +36,6 @@ class StudentClassViewController: BaseViewController {
     }
     
     @IBAction func confirmAttendanceAction(_ sender: Any) {
-        
+        viewModel.getDeviceID()
     }
 }

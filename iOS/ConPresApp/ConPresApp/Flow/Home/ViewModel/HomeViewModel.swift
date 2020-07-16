@@ -8,7 +8,7 @@
 
 import Foundation
 
-class HomeViewModel {
+class HomeViewModel: BaseViewModel {
     
     func getDayOfTheWeek (weekDay: Int) -> String {
         let weekDayString = DateUtil.getCurrentWeekDay(day: weekDay)

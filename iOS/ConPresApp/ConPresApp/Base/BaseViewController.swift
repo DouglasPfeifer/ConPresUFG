@@ -7,14 +7,13 @@
 //
 
 import UIKit
-import CoreLocation
-import MapKit
+import Moya
 
 /// The base implementation for all controllers using the app to inherit from.
 class BaseViewController: UIViewController {
 
     // MARK: Variables
-
+    
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .darkContent
     }

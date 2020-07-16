@@ -8,9 +8,7 @@
 
 import Foundation
 
-class StudentClassPasswordViewModel {
+class StudentClassPasswordViewModel: BaseViewModel {
     // MARK: Variables
     
-    init() {
-    }
 }
