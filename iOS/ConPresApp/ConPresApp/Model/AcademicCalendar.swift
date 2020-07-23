@@ -23,13 +23,15 @@ class CalendarCode {
 class AcademicCalendar {
     var ID: String?
     var code: CalendarCode?
-    var semesterStartDate: Date?
+    var semesterStartDate: String?
+    var semesterEndDate: String?
     var semesterHolidayDates: [Date?]?
     
-    init(ID: String?, code: CalendarCode?, semesterStartDate: Date?, semesterHolidayDates: [Date?]?) {
+    init(ID: String?, code: CalendarCode?, semesterStartDate: String?, semesterEndDate: String?, semesterHolidayDates: [Date?]?) {
         self.ID = ID
         self.code = code
         self.semesterStartDate = semesterStartDate
+        self.semesterEndDate = semesterEndDate
         self.semesterHolidayDates = semesterHolidayDates
     }
 }

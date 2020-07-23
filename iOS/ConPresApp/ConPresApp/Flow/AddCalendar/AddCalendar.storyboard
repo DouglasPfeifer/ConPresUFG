@@ -22,33 +22,33 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Início" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EZk-JR-xAI">
-                                                <rect key="frame" x="167.5" y="32" width="40.5" height="21"/>
+                                                <rect key="frame" x="167.5" y="117" width="40.5" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="u1r-wU-gWJ">
-                                                <rect key="frame" x="16" y="61" width="343" height="100"/>
+                                                <rect key="frame" x="16" y="146" width="343" height="100"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="100" id="hts-t6-O4G"/>
                                                 </constraints>
                                                 <locale key="locale" localeIdentifier="pt_BR"/>
                                             </datePicker>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Término" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rIr-p8-bj2">
-                                                <rect key="frame" x="156.5" y="185" width="62" height="21"/>
+                                                <rect key="frame" x="156.5" y="270" width="62" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="t9f-2i-Qja">
-                                                <rect key="frame" x="16" y="214" width="343" height="100"/>
+                                                <rect key="frame" x="16" y="299" width="343" height="100"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="100" id="C3m-Km-6cZ"/>
                                                 </constraints>
                                                 <locale key="locale" localeIdentifier="pt_BR"/>
                                             </datePicker>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Glb-Nf-KFx">
-                                                <rect key="frame" x="32" y="595" width="311" height="40"/>
+                                                <rect key="frame" x="32" y="423" width="311" height="40"/>
                                                 <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="B6j-62-Fmy"/>
@@ -66,46 +66,44 @@
                                                     <action selector="saveCalendar:" destination="Rnn-mL-X8d" eventType="touchUpInside" id="iqL-nR-zkY"/>
                                                 </connections>
                                             </button>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="bkG-cB-K6i">
-                                                <rect key="frame" x="16" y="367" width="343" height="212"/>
-                                            </stackView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Adicionar Feriados" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PJW-SD-5tA">
-                                                <rect key="frame" x="116.5" y="338" width="142" height="21"/>
+                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="cTE-F8-6Ld">
+                                                <rect key="frame" x="16" y="53" width="343" height="41"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="NsX-y2-sGk"/>
+                                                </constraints>
+                                                <segments>
+                                                    <segment title="Primeiro"/>
+                                                    <segment title="Segundo"/>
+                                                </segments>
+                                            </segmentedControl>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Semestre" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gjo-LC-AEq">
+                                                <rect key="frame" x="151" y="24" width="73" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U5l-3O-tud">
-                                                <rect key="frame" x="329" y="333.5" width="30" height="30"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="30" id="RIu-88-ZCU"/>
-                                                    <constraint firstAttribute="width" secondItem="U5l-3O-tud" secondAttribute="height" multiplier="1:1" id="hqg-f7-RK7"/>
-                                                </constraints>
-                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
                                             <constraint firstItem="EZk-JR-xAI" firstAttribute="centerX" secondItem="hgW-Hj-H0p" secondAttribute="centerX" id="0p2-Hd-ATi"/>
                                             <constraint firstAttribute="trailing" secondItem="u1r-wU-gWJ" secondAttribute="trailing" constant="16" id="4Aa-W6-GoC"/>
                                             <constraint firstItem="rIr-p8-bj2" firstAttribute="centerX" secondItem="hgW-Hj-H0p" secondAttribute="centerX" id="4g5-jp-g1r"/>
-                                            <constraint firstItem="PJW-SD-5tA" firstAttribute="centerX" secondItem="hgW-Hj-H0p" secondAttribute="centerX" id="9ff-Uo-38b"/>
+                                            <constraint firstItem="cTE-F8-6Ld" firstAttribute="top" secondItem="Gjo-LC-AEq" secondAttribute="bottom" constant="8" id="COp-hp-Uv4"/>
                                             <constraint firstAttribute="trailing" secondItem="Glb-Nf-KFx" secondAttribute="trailing" constant="32" id="FoP-yQ-fid"/>
-                                            <constraint firstItem="EZk-JR-xAI" firstAttribute="top" secondItem="hgW-Hj-H0p" secondAttribute="top" constant="32" id="Gwg-M4-wua"/>
-                                            <constraint firstItem="U5l-3O-tud" firstAttribute="centerY" secondItem="PJW-SD-5tA" secondAttribute="centerY" id="Huw-Xp-gRC"/>
-                                            <constraint firstItem="PJW-SD-5tA" firstAttribute="top" secondItem="t9f-2i-Qja" secondAttribute="bottom" constant="24" id="LeG-cN-U8s"/>
+                                            <constraint firstItem="EZk-JR-xAI" firstAttribute="top" secondItem="cTE-F8-6Ld" secondAttribute="bottom" constant="24" id="HR0-Bd-aLA"/>
                                             <constraint firstItem="rIr-p8-bj2" firstAttribute="top" secondItem="u1r-wU-gWJ" secondAttribute="bottom" constant="24" id="Poq-wh-nvP"/>
+                                            <constraint firstItem="cTE-F8-6Ld" firstAttribute="leading" secondItem="hgW-Hj-H0p" secondAttribute="leading" constant="16" id="QR6-eK-Wju"/>
                                             <constraint firstItem="u1r-wU-gWJ" firstAttribute="top" secondItem="EZk-JR-xAI" secondAttribute="bottom" constant="8" id="Qhe-mG-jG7"/>
-                                            <constraint firstItem="Glb-Nf-KFx" firstAttribute="top" secondItem="bkG-cB-K6i" secondAttribute="bottom" constant="16" id="V6M-WP-sdL"/>
+                                            <constraint firstItem="cTE-F8-6Ld" firstAttribute="centerX" secondItem="hgW-Hj-H0p" secondAttribute="centerX" id="VnZ-aR-ns2"/>
+                                            <constraint firstItem="Gjo-LC-AEq" firstAttribute="centerX" secondItem="hgW-Hj-H0p" secondAttribute="centerX" id="WAS-4i-aez"/>
                                             <constraint firstItem="t9f-2i-Qja" firstAttribute="leading" secondItem="hgW-Hj-H0p" secondAttribute="leading" constant="16" id="YWR-rc-Rtr"/>
-                                            <constraint firstItem="U5l-3O-tud" firstAttribute="trailing" secondItem="bkG-cB-K6i" secondAttribute="trailing" id="aK3-v7-m1g"/>
                                             <constraint firstItem="t9f-2i-Qja" firstAttribute="top" secondItem="rIr-p8-bj2" secondAttribute="bottom" constant="8" id="dE6-sI-oqi"/>
                                             <constraint firstItem="u1r-wU-gWJ" firstAttribute="leading" secondItem="hgW-Hj-H0p" secondAttribute="leading" constant="16" id="dOp-U1-Ab8"/>
-                                            <constraint firstItem="bkG-cB-K6i" firstAttribute="top" secondItem="PJW-SD-5tA" secondAttribute="bottom" constant="8" id="fiU-tl-QDN"/>
-                                            <constraint firstAttribute="trailing" secondItem="bkG-cB-K6i" secondAttribute="trailing" constant="16" id="h0M-EK-q6Z"/>
-                                            <constraint firstAttribute="bottom" secondItem="Glb-Nf-KFx" secondAttribute="bottom" constant="32" id="roa-Mj-dLz"/>
+                                            <constraint firstItem="Glb-Nf-KFx" firstAttribute="top" secondItem="t9f-2i-Qja" secondAttribute="bottom" constant="24" id="f9F-7U-bXS"/>
+                                            <constraint firstItem="Gjo-LC-AEq" firstAttribute="top" secondItem="hgW-Hj-H0p" secondAttribute="top" constant="24" id="hlV-RO-He2"/>
+                                            <constraint firstAttribute="trailing" secondItem="cTE-F8-6Ld" secondAttribute="trailing" constant="16" id="hpo-pI-ChE"/>
                                             <constraint firstItem="Glb-Nf-KFx" firstAttribute="leading" secondItem="hgW-Hj-H0p" secondAttribute="leading" constant="32" id="s8k-9y-JWr"/>
                                             <constraint firstAttribute="trailing" secondItem="t9f-2i-Qja" secondAttribute="trailing" constant="16" id="wqD-dY-MSW"/>
-                                            <constraint firstItem="bkG-cB-K6i" firstAttribute="leading" secondItem="hgW-Hj-H0p" secondAttribute="leading" constant="16" id="y0a-n8-afY"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -132,6 +130,7 @@
                     </view>
                     <connections>
                         <outlet property="semesterEndDatePicker" destination="t9f-2i-Qja" id="Cma-6o-SGO"/>
+                        <outlet property="semesterSegmentedControl" destination="cTE-F8-6Ld" id="idx-jp-Je9"/>
                         <outlet property="semesterStartDatePicker" destination="u1r-wU-gWJ" id="AeH-EL-MXC"/>
                     </connections>
                 </viewController>
