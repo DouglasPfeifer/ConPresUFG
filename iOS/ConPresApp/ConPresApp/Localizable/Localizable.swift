@@ -10,12 +10,21 @@ import Foundation
 
 enum Localizable {
     
+    // MARK: Menu
     enum Menu {
-        static let main = NSLocalizedString("Início", comment: "A menu item for the main app screen.")
-        static let first = NSLocalizedString("First Item X", comment: "X.")
-        static let second = NSLocalizedString("Second Item Y", comment: "Y.")
+        static let registerAttendance = "Registrar sua presença"
+        static let checkAttendance = "Consultar sua frequência"
+        static let studentsAttendance = "Frequência dos discentes"
+        static let sendToSIGAA = "Enviar para o SIGAA"
+        static let lecturersAttendance = "Frequência dos docentes"
+        static let offerClass = "Ofertar Turma"
+        static let addCalendar = "Adicionar Calendário"
+        static let addDiscipline = "Adicionar Disciplina"
+        static let addLecturer = "Adicionar Docente"
+        static let addClassroom = "Adicionar Sala"
     }
     
+    // MARK: Time
     enum DaysOfTheWeek {
         static let sunday = "Domingo"
         static let monday = "Segunda"

@@ -12,9 +12,17 @@ import Moya
 
 class BaseViewModel: NSObject {
     
-    //MARK: Variables
+    var userType: Int!
+    
+    // MARK: Variables
     let provider = MoyaProvider<NetworkingService>()
     
+    // MARK: Initializer
+    override init() {
+        self.userType = UserDefaults.UserType
+    }
+    
+    // MARK: Methods
     /// Creates a new unique user identifier or retrieves the last one created
     func getUUID() -> String? {
 

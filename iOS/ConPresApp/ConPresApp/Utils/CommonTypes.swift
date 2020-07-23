@@ -14,6 +14,16 @@ enum StoryboardName: String {
     case sideMenu = "SideMenu"
     case studentClass = "StudentClass"
     case teacherClass = "TeacherClass"
+    case registerAttendance = "RegisterAttendance"
+    case checkAttendance = "CheckAttendance"
+    case studentsAttendance = "StudentsAttendance"
+    case sendToSIGAA = "SendToSIGAA"
+    case lecturersAttendance = "LecturersAttendance"
+    case offerClass = "OfferClass"
+    case addCalendar = "AddCalendar"
+    case addDiscipline = "AddDiscipline"
+    case addLecturer = "AddLecturer"
+    case addClassroom = "AddClassroom"
 }
 
 enum StoryboardIdentifier: String {
@@ -24,6 +34,16 @@ enum StoryboardIdentifier: String {
     case sideMenuViewController = "sideMenuViewController"
     case studentClassPasswordViewController = "studentClassPasswordViewController"
     case teacherClassViewController = "teacherClassViewController"
+    case registerAttendanceViewController = "RegisterAttendanceViewController"
+    case checkAttendanceViewController = "CheckAttendanceViewController"
+    case studentsAttendanceViewController = "StudentsAttendanceViewController"
+    case sendToSIGAAViewController = "SendToSIGAAViewController"
+    case lecturersAttendanceViewController = "LecturersAttendanceViewController"
+    case offerClassViewController = "OfferClassViewController"
+    case addCalendarViewController = "AddCalendarViewController"
+    case addDisciplineViewController = "AddDisciplineViewController"
+    case addLecturerViewController = "AddLecturerViewController"
+    case addClassroomViewController = "AddClassroomViewController"
     
     // Cells
     case sideMenuCell = "sideMenuCell"
@@ -34,4 +54,18 @@ enum StoryboardIdentifier: String {
     case showAskStudentClassPasswordSegue = "showAskStudentClassPasswordSegue"
     case showStudentClassSegue = "showStudentClassSegue"
     case showTeacherClassSegue = "showTeacherClassSegue"
+}
+
+enum UserTypes: Int {
+    case student = 0
+    case teacher = 1
+    case NDE = 2
+    case courseCoordinator = 3
+}
+
+enum NumMenuOptions {
+    static let student = 2
+    static let teacher = 4
+    static let NDE = 2
+    static let courseCoordinator = 7
 }
