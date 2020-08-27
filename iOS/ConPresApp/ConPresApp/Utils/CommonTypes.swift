@@ -48,12 +48,15 @@ enum StoryboardIdentifier: String {
     // Cells
     case sideMenuCell = "sideMenuCell"
     case homeCell = "homeCell"
+    case addClassCell = "addClassCell"
     
     // Segues
     case showHomeSegue = "showHomeSegue"
     case showAskStudentClassPasswordSegue = "showAskStudentClassPasswordSegue"
     case showStudentClassSegue = "showStudentClassSegue"
     case showTeacherClassSegue = "showTeacherClassSegue"
+    case showAddClassSegue = "showAddClassSegue"
+    case showAddSelectedClassSegue = "showAddSelectedClassSegue"
 }
 
 enum UserTypes: Int {

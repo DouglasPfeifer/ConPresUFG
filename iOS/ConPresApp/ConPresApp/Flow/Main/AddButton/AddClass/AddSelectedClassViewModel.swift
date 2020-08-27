@@ -1,8 +1,8 @@
 //
-//  StudentClassViewModel.swift
+//  AddSelectedClassViewModel.swift
 //  ConPresApp
 //
-//  Created by Douglas Tonetto Pfeifer on 16/07/20.
+//  Created by Douglas Tonetto Pfeifer on 27/08/20.
 //  Copyright © 2020 Douglas Tonetto Pfeifer. All rights reserved.
 //
 
@@ -11,7 +11,7 @@ import CoreLocation
 import MapKit
 import Moya
 
-class StudentClassViewModel: BaseViewModel, CLLocationManagerDelegate {
+class AddSelectedClassViewModel: BaseViewModel, CLLocationManagerDelegate {
     
     // MARK: Variables
     let locationManager = CLLocationManager()
@@ -50,8 +50,9 @@ class StudentClassViewModel: BaseViewModel, CLLocationManagerDelegate {
 //    }
     
     // MARK: Internal methods
-    func getLocation() {
-        print(locationManager.location)
+    func getLocation() -> [Double] {
+        guard let location = locationManager.location else { return [0.0, 0.0] }
+        return [location.coordinate.latitude, location.coordinate.longitude]
     }
     
     func getDeviceID() {

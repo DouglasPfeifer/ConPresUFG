@@ -14,14 +14,13 @@ class HomeViewController: BaseViewController {
     // MARK: Variables
     @IBOutlet weak var menuButton: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var addButton: UIBarButtonItem!
     
     var viewModel: HomeViewModel!
             
     // MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
         
         viewModel = HomeViewModel()
         
@@ -66,10 +65,19 @@ class HomeViewController: BaseViewController {
     private func selectedPresentationStyle() -> SideMenuPresentationStyle {
         return SideMenuPresentationStyle.menuSlideIn
     }
+    
+    // MARK: Actions
+    @IBAction func addButtonAction(_ sender: Any) {
+        switch viewModel.userType {
+        case UserTypes.teacher.rawValue:
+            self.performSegue(withIdentifier: StoryboardIdentifier.showAddClassSegue.rawValue, sender: nil)
+        default:
+            return
+        }
+    }
 }
 
 // MARK: TableView Delegate
-
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -116,8 +124,13 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     // MARK: Segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == StoryboardIdentifier.showTeacherClassSegue.rawValue {
+        switch segue.identifier {
+        case StoryboardIdentifier.showTeacherClassSegue.rawValue:
             let teacherClassViewController = segue.destination as! TeacherClassViewController
+        case StoryboardIdentifier.showAddClassSegue.rawValue:
+            let addClassroomViewController = segue.destination as! AddClassViewController
+        default:
+            return
         }
         
         guard let sideMenuNavigationController = segue.destination as? SideMenuNavigationController else { return }

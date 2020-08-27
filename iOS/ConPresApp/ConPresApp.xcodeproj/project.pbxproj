@@ -59,8 +59,6 @@
 		A444950D24AE9C6B006FF70A /* Lesson.swift in Sources */ = {isa = PBXBuildFile; fileRef = A444950C24AE9C6B006FF70A /* Lesson.swift */; };
 		A458647324C036BD0044DA2C /* StudentClassViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A458647224C036BD0044DA2C /* StudentClassViewModel.swift */; };
 		A458647524C036CE0044DA2C /* StudentClassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A458647424C036CE0044DA2C /* StudentClassViewController.swift */; };
-		A4B81B6724C06554004476B6 /* AddClassViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B81B6624C06554004476B6 /* AddClassViewModel.swift */; };
-		A4B81B6924C065AA004476B6 /* AddClassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B81B6824C065AA004476B6 /* AddClassViewController.swift */; };
 		A4B81B6C24C0755D004476B6 /* SideMenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B81B6B24C0755D004476B6 /* SideMenuViewModel.swift */; };
 		A4BC53C724C0586800ECB57B /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BC53C624C0586800ECB57B /* BaseViewModel.swift */; };
 		A4BC53C924C05C0700ECB57B /* KeychainAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BC53C824C05C0700ECB57B /* KeychainAccess.swift */; };
@@ -77,6 +75,11 @@
 		A4DE353924C958B400F1B625 /* Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DE353824C958B400F1B625 /* Class.swift */; };
 		A4DE353B24C9599B00F1B625 /* Unit.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DE353A24C9599B00F1B625 /* Unit.swift */; };
 		A4F0A69524AFD9F700FEFB0B /* TimeConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F0A69424AFD9F700FEFB0B /* TimeConverter.swift */; };
+		A4FB76C224F7601D00C5F33F /* AddClassViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FB76C024F7601C00C5F33F /* AddClassViewModel.swift */; };
+		A4FB76C324F7601D00C5F33F /* AddClassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FB76C124F7601D00C5F33F /* AddClassViewController.swift */; };
+		A4FB76C724F766A400C5F33F /* AddClassTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FB76C624F766A400C5F33F /* AddClassTableViewCell.swift */; };
+		A4FB76CB24F77EBA00C5F33F /* AddSelectedClassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FB76CA24F77EBA00C5F33F /* AddSelectedClassViewController.swift */; };
+		A4FB76CD24F77ECD00C5F33F /* AddSelectedClassViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FB76CC24F77ECD00C5F33F /* AddSelectedClassViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -156,8 +159,6 @@
 		A444950C24AE9C6B006FF70A /* Lesson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lesson.swift; sourceTree = "<group>"; };
 		A458647224C036BD0044DA2C /* StudentClassViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentClassViewModel.swift; sourceTree = "<group>"; };
 		A458647424C036CE0044DA2C /* StudentClassViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentClassViewController.swift; sourceTree = "<group>"; };
-		A4B81B6624C06554004476B6 /* AddClassViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddClassViewModel.swift; sourceTree = "<group>"; };
-		A4B81B6824C065AA004476B6 /* AddClassViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddClassViewController.swift; sourceTree = "<group>"; };
 		A4B81B6B24C0755D004476B6 /* SideMenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewModel.swift; sourceTree = "<group>"; };
 		A4BC53C624C0586800ECB57B /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		A4BC53C824C05C0700ECB57B /* KeychainAccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainAccess.swift; sourceTree = "<group>"; };
@@ -174,6 +175,11 @@
 		A4DE353824C958B400F1B625 /* Class.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Class.swift; sourceTree = "<group>"; };
 		A4DE353A24C9599B00F1B625 /* Unit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Unit.swift; sourceTree = "<group>"; };
 		A4F0A69424AFD9F700FEFB0B /* TimeConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeConverter.swift; sourceTree = "<group>"; };
+		A4FB76C024F7601C00C5F33F /* AddClassViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddClassViewModel.swift; sourceTree = "<group>"; };
+		A4FB76C124F7601D00C5F33F /* AddClassViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddClassViewController.swift; sourceTree = "<group>"; };
+		A4FB76C624F766A400C5F33F /* AddClassTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddClassTableViewCell.swift; sourceTree = "<group>"; };
+		A4FB76CA24F77EBA00C5F33F /* AddSelectedClassViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSelectedClassViewController.swift; sourceTree = "<group>"; };
+		A4FB76CC24F77ECD00C5F33F /* AddSelectedClassViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSelectedClassViewModel.swift; sourceTree = "<group>"; };
 		ED70D57F3ED40A6E4AD70DB4 /* Pods_ConPresApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ConPresApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -480,7 +486,7 @@
 			isa = PBXGroup;
 			children = (
 				A4B81B6224C064EF004476B6 /* Home */,
-				A4B81B6324C064FD004476B6 /* AddButton */,
+				A4FB76BE24F7600500C5F33F /* AddButton */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -516,6 +522,7 @@
 			children = (
 				A444950624AE99C3006FF70A /* HomeTableViewCell.swift */,
 				A444950924AE99DD006FF70A /* SideMenuTableViewCell.swift */,
+				A4FB76C624F766A400C5F33F /* AddClassTableViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -546,23 +553,6 @@
 				A420F45E24AA54BC00393F74 /* Home.storyboard */,
 			);
 			path = Home;
-			sourceTree = "<group>";
-		};
-		A4B81B6324C064FD004476B6 /* AddButton */ = {
-			isa = PBXGroup;
-			children = (
-				A4B81B6A24C06ED8004476B6 /* AddClass */,
-			);
-			path = AddButton;
-			sourceTree = "<group>";
-		};
-		A4B81B6A24C06ED8004476B6 /* AddClass */ = {
-			isa = PBXGroup;
-			children = (
-				A4B81B6624C06554004476B6 /* AddClassViewModel.swift */,
-				A4B81B6824C065AA004476B6 /* AddClassViewController.swift */,
-			);
-			path = AddClass;
 			sourceTree = "<group>";
 		};
 		A4C6C0BE24C0499300D1CAAE /* Service */ = {
@@ -597,6 +587,25 @@
 				A4BC53C824C05C0700ECB57B /* KeychainAccess.swift */,
 			);
 			path = Helper;
+			sourceTree = "<group>";
+		};
+		A4FB76BE24F7600500C5F33F /* AddButton */ = {
+			isa = PBXGroup;
+			children = (
+				A4FB76BF24F7600D00C5F33F /* AddClass */,
+			);
+			path = AddButton;
+			sourceTree = "<group>";
+		};
+		A4FB76BF24F7600D00C5F33F /* AddClass */ = {
+			isa = PBXGroup;
+			children = (
+				A4FB76C024F7601C00C5F33F /* AddClassViewModel.swift */,
+				A4FB76C124F7601D00C5F33F /* AddClassViewController.swift */,
+				A4FB76CC24F77ECD00C5F33F /* AddSelectedClassViewModel.swift */,
+				A4FB76CA24F77EBA00C5F33F /* AddSelectedClassViewController.swift */,
+			);
+			path = AddClass;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -821,6 +830,7 @@
 				A444950D24AE9C6B006FF70A /* Lesson.swift in Sources */,
 				A458647524C036CE0044DA2C /* StudentClassViewController.swift in Sources */,
 				A4BC53C924C05C0700ECB57B /* KeychainAccess.swift in Sources */,
+				A4FB76C324F7601D00C5F33F /* AddClassViewController.swift in Sources */,
 				A4BC53C724C0586800ECB57B /* BaseViewModel.swift in Sources */,
 				A4DE353724C957F300F1B625 /* Classroom.swift in Sources */,
 				A40A1AFA24C96F0100608DF7 /* CheckAttendanceViewController.swift in Sources */,
@@ -832,23 +842,25 @@
 				A420F45324AA4E6F00393F74 /* UserDefaults+Util.swift in Sources */,
 				A4DE352B24C949A900F1B625 /* Student.swift in Sources */,
 				A40A1AEB24C965C500608DF7 /* RegisterAttendanceViewController.swift in Sources */,
+				A4FB76CD24F77ECD00C5F33F /* AddSelectedClassViewModel.swift in Sources */,
 				A420F45024AA4C5200393F74 /* CommonTypes.swift in Sources */,
+				A4FB76CB24F77EBA00C5F33F /* AddSelectedClassViewController.swift in Sources */,
 				A4DE352F24C94B6A00F1B625 /* Teaching.swift in Sources */,
 				A4F0A69524AFD9F700FEFB0B /* TimeConverter.swift in Sources */,
 				A4DE352924C9486C00F1B625 /* AcademicCalendar.swift in Sources */,
+				A4FB76C224F7601D00C5F33F /* AddClassViewModel.swift in Sources */,
 				A420F45B24AA518E00393F74 /* LoginViewModel.swift in Sources */,
 				A420F49324AD125600393F74 /* StudentClassPasswordViewController.swift in Sources */,
 				A40A1B0224C96F4C00608DF7 /* OfferClassViewController.swift in Sources */,
 				A4D3FB0F24BFF5D600A7F13D /* DateConverter.swift in Sources */,
-				A4B81B6724C06554004476B6 /* AddClassViewModel.swift in Sources */,
 				A458647324C036BD0044DA2C /* StudentClassViewModel.swift in Sources */,
 				A40A1AFE24C96F2E00608DF7 /* SendToSIGAAViewController.swift in Sources */,
-				A4B81B6924C065AA004476B6 /* AddClassViewController.swift in Sources */,
 				A4DE353324C94E0D00F1B625 /* Study.swift in Sources */,
 				A428E4E824A6B45D00123AEC /* Localizable.swift in Sources */,
 				A444950A24AE99DD006FF70A /* SideMenuTableViewCell.swift in Sources */,
 				A40A1B0824C96F7400608DF7 /* AddLecturerViewController.swift in Sources */,
 				A4DE353124C94D3600F1B625 /* Lecturer.swift in Sources */,
+				A4FB76C724F766A400C5F33F /* AddClassTableViewCell.swift in Sources */,
 				A444950724AE99C3006FF70A /* HomeTableViewCell.swift in Sources */,
 				A4D3FB1124BFFD8A00A7F13D /* String+Util.swift in Sources */,
 				A4C6C0C124C04ABB00D1CAAE /* NetworkingService.swift in Sources */,
