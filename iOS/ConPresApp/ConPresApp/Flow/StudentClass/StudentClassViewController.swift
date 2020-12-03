@@ -24,19 +24,43 @@ class StudentClassViewController: BaseViewController {
     @IBOutlet weak var passwordLabel: UILabel!
     @IBOutlet weak var passwordTextField: UITextField!
     
-    @IBOutlet weak var registerAttendanceButton: UIButton!
+    @IBOutlet weak var registerAttendanceButton: LoadingButton!
     
     @IBOutlet weak var mapView: MKMapView!
     
+    private var observer: NSObjectProtocol?
+    
     var viewModel: StudentClassViewModel!
+    
+    let alertController = UIAlertController(title: "Permissão do GPS", message: "Vá aos ajustes e ative a permissão do GPS", preferredStyle: .alert)
+    let settingsAction = UIAlertAction(title: "Ajustes", style: .default) { (_) -> Void in
+        guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else {
+            return
+        }
+        if UIApplication.shared.canOpenURL(settingsUrl) {
+            UIApplication.shared.open(settingsUrl, completionHandler: { (success) in })
+        }
+    }
+    let cancelAction = UIAlertAction(title: "Cancelar", style: .cancel, handler: nil)
 
     // MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        viewModel.askForGPSPermission()
-        
+        viewModel.checkGPSPermission()
         setupLayout()
+        setupAlert()
+        
+        observer = NotificationCenter.default.addObserver(forName: UIApplication.willEnterForegroundNotification, object: nil, queue: .main) { [weak self] notification in
+            self?.viewModel.checkGPSPermission()
+            self?.setupLayout()
+        }
+    }
+    
+    deinit {
+        if let observer = observer {
+            NotificationCenter.default.removeObserver(observer)
+        }
     }
     
     // MARK: Layout functions
@@ -85,11 +109,23 @@ class StudentClassViewController: BaseViewController {
         mapView.setRegion(currentRegion, animated: true)
     }
     
+    // MARK: Alert
+    private func setupAlert() {
+        alertController.addAction(cancelAction)
+        alertController.addAction(settingsAction)
+    }
+    
+    // MARK: Actions
     @IBAction func activateGPS(_ sender: Any) {
-        viewModel.askForGPSPermission()
+        if !viewModel.GPSPermissionGranted {
+            present(alertController, animated: true, completion: nil)
+        }
     }
     
     @IBAction func registerAttendance(_ sender: Any) {
-        
+        registerAttendanceButton.showLoading()
+        viewModel.sendAttendance {
+            self.registerAttendanceButton.hideLoading()
+        }
     }
 }

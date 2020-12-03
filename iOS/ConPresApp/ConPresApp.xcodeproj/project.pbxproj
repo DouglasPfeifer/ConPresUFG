@@ -37,12 +37,14 @@
 		A4B81B6C24C0755D004476B6 /* SideMenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B81B6B24C0755D004476B6 /* SideMenuViewModel.swift */; };
 		A4BC53C724C0586800ECB57B /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BC53C624C0586800ECB57B /* BaseViewModel.swift */; };
 		A4BC53C924C05C0700ECB57B /* KeychainAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BC53C824C05C0700ECB57B /* KeychainAccess.swift */; };
+		A4C30E452578890E00F859DA /* UIBarButtonItem+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C30E442578890E00F859DA /* UIBarButtonItem+Util.swift */; };
 		A4C6C0C124C04ABB00D1CAAE /* NetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C6C0C024C04ABB00D1CAAE /* NetworkingService.swift */; };
 		A4D34D61256AFCC800A7C7A8 /* HomeMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D34D60256AFCC800A7C7A8 /* HomeMock.swift */; };
 		A4D34D69256AFD9F00A7C7A8 /* Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D34D68256AFD9F00A7C7A8 /* Class.swift */; };
 		A4D34D92256B133700A7C7A8 /* Date+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D34D91256B133700A7C7A8 /* Date+Util.swift */; };
 		A4D3FB0F24BFF5D600A7F13D /* DateConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D3FB0E24BFF5D600A7F13D /* DateConverter.swift */; };
 		A4D3FB1124BFFD8A00A7F13D /* String+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D3FB1024BFFD8A00A7F13D /* String+Util.swift */; };
+		A4D966D5257883A30081D7D4 /* LoadingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D966D4257883A30081D7D4 /* LoadingButton.swift */; };
 		A4F0A69524AFD9F700FEFB0B /* TimeConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F0A69424AFD9F700FEFB0B /* TimeConverter.swift */; };
 		A4FB76C224F7601D00C5F33F /* AddClassViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FB76C024F7601C00C5F33F /* AddClassViewModel.swift */; };
 		A4FB76C324F7601D00C5F33F /* AddClassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FB76C124F7601D00C5F33F /* AddClassViewController.swift */; };
@@ -106,12 +108,14 @@
 		A4B81B6B24C0755D004476B6 /* SideMenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewModel.swift; sourceTree = "<group>"; };
 		A4BC53C624C0586800ECB57B /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		A4BC53C824C05C0700ECB57B /* KeychainAccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainAccess.swift; sourceTree = "<group>"; };
+		A4C30E442578890E00F859DA /* UIBarButtonItem+Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Util.swift"; sourceTree = "<group>"; };
 		A4C6C0C024C04ABB00D1CAAE /* NetworkingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingService.swift; sourceTree = "<group>"; };
 		A4D34D60256AFCC800A7C7A8 /* HomeMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMock.swift; sourceTree = "<group>"; };
 		A4D34D68256AFD9F00A7C7A8 /* Class.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Class.swift; sourceTree = "<group>"; };
 		A4D34D91256B133700A7C7A8 /* Date+Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Util.swift"; sourceTree = "<group>"; };
 		A4D3FB0E24BFF5D600A7F13D /* DateConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateConverter.swift; sourceTree = "<group>"; };
 		A4D3FB1024BFFD8A00A7F13D /* String+Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Util.swift"; sourceTree = "<group>"; };
+		A4D966D4257883A30081D7D4 /* LoadingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingButton.swift; sourceTree = "<group>"; };
 		A4F0A69424AFD9F700FEFB0B /* TimeConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeConverter.swift; sourceTree = "<group>"; };
 		A4FB76C024F7601C00C5F33F /* AddClassViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddClassViewModel.swift; sourceTree = "<group>"; };
 		A4FB76C124F7601D00C5F33F /* AddClassViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddClassViewController.swift; sourceTree = "<group>"; };
@@ -182,6 +186,7 @@
 				A4D3FB1024BFFD8A00A7F13D /* String+Util.swift */,
 				A4D34D91256B133700A7C7A8 /* Date+Util.swift */,
 				A4B660C1257634C0007094F6 /* UIViewController+Util.swift */,
+				A4C30E442578890E00F859DA /* UIBarButtonItem+Util.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -206,6 +211,7 @@
 		A420F47F24AD0B9900393F74 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				A4D966D9257884440081D7D4 /* CustomUI */,
 				A444950824AE99C7006FF70A /* Cell */,
 			);
 			path = UI;
@@ -380,6 +386,14 @@
 				A428E4AD24A697E200123AEC /* AppDelegate.swift */,
 			);
 			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		A4D966D9257884440081D7D4 /* CustomUI */ = {
+			isa = PBXGroup;
+			children = (
+				A4D966D4257883A30081D7D4 /* LoadingButton.swift */,
+			);
+			path = CustomUI;
 			sourceTree = "<group>";
 		};
 		A4F0A69324AFD9C800FEFB0B /* Helper */ = {
@@ -612,6 +626,7 @@
 				A428E4E224A6B35500123AEC /* BaseViewController.swift in Sources */,
 				A420F45D24AA533100393F74 /* UIStoryboard+Util.swift in Sources */,
 				A444950524AE93FD006FF70A /* BaseNavigationViewController.swift in Sources */,
+				A4C30E452578890E00F859DA /* UIBarButtonItem+Util.swift in Sources */,
 				A428E4AE24A697E200123AEC /* AppDelegate.swift in Sources */,
 				A4BC53C924C05C0700ECB57B /* KeychainAccess.swift in Sources */,
 				A4FB76C324F7601D00C5F33F /* AddClassViewController.swift in Sources */,
@@ -631,6 +646,7 @@
 				A420F45B24AA518E00393F74 /* LoginViewModel.swift in Sources */,
 				A420F49324AD125600393F74 /* StudentClassViewController.swift in Sources */,
 				A4D3FB0F24BFF5D600A7F13D /* DateConverter.swift in Sources */,
+				A4D966D5257883A30081D7D4 /* LoadingButton.swift in Sources */,
 				A428E4E824A6B45D00123AEC /* Localizable.swift in Sources */,
 				A444950A24AE99DD006FF70A /* SideMenuTableViewCell.swift in Sources */,
 				A4FB76C724F766A400C5F33F /* AddClassTableViewCell.swift in Sources */,

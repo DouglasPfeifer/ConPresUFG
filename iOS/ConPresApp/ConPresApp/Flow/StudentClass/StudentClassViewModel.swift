@@ -32,7 +32,7 @@ class StudentClassViewModel: BaseViewModel, CLLocationManagerDelegate {
     }
     
     // MARK: GPS Location Delegate
-    func askForGPSPermission() {
+    func checkGPSPermission() {
         if CLLocationManager.locationServicesEnabled() {
             switch CLLocationManager.authorizationStatus() {
                 case .notDetermined, .restricted, .denied:
@@ -89,10 +89,11 @@ class StudentClassViewModel: BaseViewModel, CLLocationManagerDelegate {
     }
     
     // MARK: HTTP Requests
-    func sendAttendance() {
+    func sendAttendance(completion: @escaping () -> ()) {
         let provider = MoyaProvider<NetworkingService>()
-        provider.request(.createUser(firstName: "James", lastName: "Potter")) { result in
-            // do something with the result (read on for more details)
+        provider.request(.createUser(firstName: "James", lastName: "Potter")) {
+            result in
+            completion()
         }
 
         // The full request will result to the following:
@@ -103,8 +104,9 @@ class StudentClassViewModel: BaseViewModel, CLLocationManagerDelegate {
         //   "last_name": "Potter"
         // }
 
-        provider.request(.updateUser(id: 123, firstName: "Harry", lastName: "Potter")) { result in
-            // do something with the result (read on for more details)
+        provider.request(.updateUser(id: 123, firstName: "Harry", lastName: "Potter")) {
+            result in
+            completion()
         }
 
         // The full request will result to the following:

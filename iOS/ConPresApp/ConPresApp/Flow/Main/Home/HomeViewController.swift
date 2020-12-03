@@ -24,12 +24,24 @@ class HomeViewController: BaseViewController {
         
         viewModel = HomeViewModel()
         
+        setupNavBar()
         setupSideMenu()
         updateMenu()
         setupTableView()
     }
     
     // MARK: Internal methods
+    private func setupNavBar() {
+        switch viewModel.userType {
+        case UserTypes.student.rawValue:
+            addButton.isHidden = true
+        case UserTypes.teacher.rawValue:
+            addButton.isHidden = false
+        default:
+            return
+        }
+    }
+    
     private func setupSideMenu() {
         SideMenuManager.default.leftMenuNavigationController = storyboard?.instantiateViewController(withIdentifier: "LeftMenuNavigationController") as? SideMenuNavigationController
     }
