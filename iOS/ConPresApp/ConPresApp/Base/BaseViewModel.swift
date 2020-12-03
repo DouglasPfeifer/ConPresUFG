@@ -14,7 +14,7 @@ class BaseViewModel: NSObject {
     
     var userType: Int!
     
-    // MARK: Variables
+    // MARK: Properties
     let provider = MoyaProvider<NetworkingService>()
     
     // MARK: Initializer

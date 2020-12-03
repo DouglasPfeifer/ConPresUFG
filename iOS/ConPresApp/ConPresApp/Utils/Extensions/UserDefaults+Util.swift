@@ -10,7 +10,7 @@ import Foundation
 
 extension UserDefaults {
 
-    // MARK: Variables
+    // MARK: Properties
 
     /// Flag informing if the app was already launched for the first time.
     static var wasAppLaunched: Bool {

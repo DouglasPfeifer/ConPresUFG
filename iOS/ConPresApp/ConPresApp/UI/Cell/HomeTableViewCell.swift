@@ -15,7 +15,7 @@ class HomeTableViewCell: UITableViewCell {
     /// Docente
     @IBOutlet weak var lecturerLabel: UILabel!
     /// Local
-    @IBOutlet weak var locationLabel: UILabel!
+    @IBOutlet weak var classroomLabel: UILabel!
     /// Horário
     @IBOutlet weak var scheduleLabel: UILabel!
     

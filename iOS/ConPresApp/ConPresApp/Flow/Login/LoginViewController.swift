@@ -10,7 +10,7 @@ import UIKit
 
 class LoginViewController: BaseViewController {
     
-    // MARK: Variables
+    // MARK: Properties
     var viewModel: LoginViewModel!
     
     // MARK: Lifecycle
@@ -33,7 +33,7 @@ class LoginViewController: BaseViewController {
     
     // MARK: Internal methods
     func changeUserType() {
-        if viewModel.userType == 3 {
+        if viewModel.userType >= 1 {
             viewModel.userType = 0
         } else {
             viewModel.userType = viewModel.userType! + 1

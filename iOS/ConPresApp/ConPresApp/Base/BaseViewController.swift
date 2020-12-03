@@ -12,16 +12,21 @@ import Moya
 /// The base implementation for all controllers using the app to inherit from.
 class BaseViewController: UIViewController {
 
-    // MARK: Variables
+    // MARK: Properties
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .darkContent
     }
     
-    // MARK: Imperatives
+    // MARK: Lifecycle
     open override func awakeFromNib() {
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         navigationItem.title = self.title
         navigationItem.backBarButtonItem?.tintColor = UIColor.black
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.hideKeyboardWhenTappedAround()
     }
 }

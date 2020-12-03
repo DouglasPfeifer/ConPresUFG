@@ -13,7 +13,7 @@ import Moya
 
 class AddSelectedClassViewModel: BaseViewModel, CLLocationManagerDelegate {
     
-    // MARK: Variables
+    // MARK: Properties
     let locationManager = CLLocationManager()
     
     // MARK: GPS Location Delegate

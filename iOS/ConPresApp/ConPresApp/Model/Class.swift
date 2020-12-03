@@ -11,23 +11,36 @@ import Foundation
 class Class {
     var code: String?
     var schedule: String?
-    var status: String?
+    var status: Int?
     
     var discipline: String?
-    var startDate: String?
-    var startTime: String?
-    var endTime: String?
+    var lecturer: String?
+    var classroom: String?
+    var startDate: Date?
+    var startTime: Date?
+    var endTime: Date?
+    
     var password: String?
     var latitude: Double?
     var longitude: Double?
     
-    init(code: String?, schedule: String?, status: String?) {
+    init(code: String,
+         schedule: String,
+         status: Int,
+         discipline: String,
+         lecturer: String,
+         classroom: String,
+         startDate: Date,
+         startTime: Date,
+         endTime: Date,
+         password: String?,
+         latitude: Double?,
+         longitude: Double?) {
         self.code = code
         self.schedule = schedule
         self.status = status
-    }
-    
-    init(discipline: String, startDate: String, startTime: String, endTime: String, password: String?, latitude: Double?, longitude: Double?) {
+        self.lecturer = lecturer
+        self.classroom = classroom
         self.discipline = discipline
         self.startDate = startDate
         self.startTime = startTime

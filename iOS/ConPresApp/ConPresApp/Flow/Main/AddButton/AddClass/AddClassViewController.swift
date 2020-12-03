@@ -16,7 +16,7 @@ class AddClassViewController: BaseViewController {
         "Teoria da computação": [["date": "20/09/2020", "startTime": "11:00", "endTime": "12:40"], ["date": "24/09/2020", "startTime": "13:00", "endTime": "14:40"],["date": "28/09/2020", "startTime": "14:00", "endTime": "15:40"]],
         "Redes de computadores 2": [["date": "10/09/2020", "startTime": "09:00", "endTime": "10:40"], ["date": "11/09/2020", "startTime": "11:00", "endTime": "12:40"], ["date": "12/09/2020", "startTime": "13:00", "endTime": "14:40"]]]
     
-    // MARK: Variables
+    // MARK: Properties
     @IBOutlet weak var disciplinesSegmentedControl: UISegmentedControl!
     @IBOutlet weak var disciplineTitleLabel: UILabel!
     @IBOutlet weak var classesTableView: UITableView!
@@ -58,7 +58,7 @@ class AddClassViewController: BaseViewController {
         case StoryboardIdentifier.showAddSelectedClassSegue.rawValue:
             let addSelectedClassViewController = segue.destination as! AddSelectedClassViewController
             guard let selectedCell = self.classesTableView.cellForRow(at: IndexPath(row: selectedIndex!, section: 0)) as? AddClassTableViewCell else { return }
-            addSelectedClassViewController.activeClass = selectedCell.cellClass
+//            addSelectedClassViewController.activeClass = selectedCell.cellClass
         default:
             return
         }
@@ -79,7 +79,7 @@ extension AddClassViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: StoryboardIdentifier.addClassCell.rawValue, for: indexPath) as! AddClassTableViewCell
-        cell.cellClass = Class(discipline: disciplineTitleLabel.text!, startDate: activeTableViewArray[indexPath.row]["date"]!, startTime: activeTableViewArray[indexPath.row]["startTime"]!, endTime: activeTableViewArray[indexPath.row]["endTime"]!, password: nil, latitude: nil, longitude: nil)
+//        cell.cellClass = Class(discipline: disciplineTitleLabel.text!, startDate: activeTableViewArray[indexPath.row]["date"]!, startTime: activeTableViewArray[indexPath.row]["startTime"]!, endTime: activeTableViewArray[indexPath.row]["endTime"]!, password: nil, latitude: nil, longitude: nil)
         return cell
     }
     

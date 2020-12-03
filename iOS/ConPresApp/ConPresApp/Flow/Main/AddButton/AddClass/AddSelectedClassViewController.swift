@@ -11,7 +11,7 @@ import MapKit
 
 class AddSelectedClassViewController: UIViewController, CLLocationManagerDelegate {
 
-    // MARK: Variables
+    // MARK: Properties
     @IBOutlet weak var disciplineTitleLabel: UILabel!
     @IBOutlet weak var classDateLabel: UILabel!
     @IBOutlet weak var startTimeLabel: UILabel!
@@ -32,9 +32,9 @@ class AddSelectedClassViewController: UIViewController, CLLocationManagerDelegat
         viewModel.askForGPSPermission()
 
         disciplineTitleLabel.text = activeClass?.discipline ?? "---"
-        classDateLabel.text = activeClass?.startDate ?? "--/--/----"
-        startTimeLabel.text = activeClass?.startTime ?? "--:--"
-        endTimeLabel.text = activeClass?.endTime ?? "--:--"
+//        classDateLabel.text = activeClass?.startDate ?? "--/--/----"
+//        startTimeLabel.text = activeClass?.startTime ?? "--:--"
+//        endTimeLabel.text = activeClass?.endTime ?? "--:--"
         classPasswordLabel.text = activeClass?.password ?? "Inicie a aula para gerar uma senha"
         mapView.camera.centerCoordinate = CLLocationCoordinate2D(latitude: activeClass?.latitude ?? 0, longitude: activeClass?.longitude ?? 0)
     }

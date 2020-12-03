@@ -14,11 +14,19 @@ class AddClassTableViewCell: UITableViewCell {
     @IBOutlet weak var startTimeLabel: UILabel!
     @IBOutlet weak var endTimeLabel: UILabel!
     
-    var cellClass: Class? {
-        didSet {
-            self.dateLabel.text = cellClass?.startDate
-            self.startTimeLabel.text = cellClass?.startTime
-            self.endTimeLabel.text = cellClass?.endTime
-        }
-    }
+//    var startDate: Date?
+//    var startTime: Date?
+//    var endTime: Date?
+    
+//    override func awakeFromNib() {
+//
+//    }
+//
+//    var cellClass: Class? {
+//        didSet {
+//            self.startDate = cellClass?.startDate
+//            self.startTime = cellClass?.startTime
+//            self.endTime = cellClass?.endTime
+//        }
+//    }
 }

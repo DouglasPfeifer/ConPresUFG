@@ -8,26 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		9B32DE2AB86261A329A46ED1 /* Pods_ConPresApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED70D57F3ED40A6E4AD70DB4 /* Pods_ConPresApp.framework */; };
-		A40A1AEB24C965C500608DF7 /* RegisterAttendanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40A1AEA24C965C500608DF7 /* RegisterAttendanceViewController.swift */; };
-		A40A1AED24C9661D00608DF7 /* RegisterAttendance.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A40A1AEC24C9661D00608DF7 /* RegisterAttendance.storyboard */; };
-		A40A1AFA24C96F0100608DF7 /* CheckAttendanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40A1AF924C96F0100608DF7 /* CheckAttendanceViewController.swift */; };
-		A40A1AFC24C96F2000608DF7 /* StudentsAttendanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40A1AFB24C96F2000608DF7 /* StudentsAttendanceViewController.swift */; };
-		A40A1AFE24C96F2E00608DF7 /* SendToSIGAAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40A1AFD24C96F2E00608DF7 /* SendToSIGAAViewController.swift */; };
-		A40A1B0024C96F3900608DF7 /* LecturersAttendanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40A1AFF24C96F3900608DF7 /* LecturersAttendanceViewController.swift */; };
-		A40A1B0224C96F4C00608DF7 /* OfferClassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40A1B0124C96F4C00608DF7 /* OfferClassViewController.swift */; };
-		A40A1B0424C96F5900608DF7 /* AddCalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40A1B0324C96F5900608DF7 /* AddCalendarViewController.swift */; };
-		A40A1B0624C96F6700608DF7 /* AddDisciplineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40A1B0524C96F6700608DF7 /* AddDisciplineViewController.swift */; };
-		A40A1B0824C96F7400608DF7 /* AddLecturerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40A1B0724C96F7400608DF7 /* AddLecturerViewController.swift */; };
-		A40A1B0A24C96F7E00608DF7 /* AddClassroomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40A1B0924C96F7D00608DF7 /* AddClassroomViewController.swift */; };
-		A40A1B0C24C970C600608DF7 /* CheckAttendance.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A40A1B0B24C970C600608DF7 /* CheckAttendance.storyboard */; };
-		A40A1B0E24C9710B00608DF7 /* StudentsAttendance.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A40A1B0D24C9710B00608DF7 /* StudentsAttendance.storyboard */; };
-		A40A1B1024C9712300608DF7 /* SendToSIGAA.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A40A1B0F24C9712300608DF7 /* SendToSIGAA.storyboard */; };
-		A40A1B1224C9713D00608DF7 /* LecturersAttendance.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A40A1B1124C9713D00608DF7 /* LecturersAttendance.storyboard */; };
-		A40A1B1424C9715200608DF7 /* OfferClass.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A40A1B1324C9715200608DF7 /* OfferClass.storyboard */; };
-		A40A1B1624C9716600608DF7 /* AddCalendar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A40A1B1524C9716600608DF7 /* AddCalendar.storyboard */; };
-		A40A1B1824C9717B00608DF7 /* AddDiscipline.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A40A1B1724C9717B00608DF7 /* AddDiscipline.storyboard */; };
-		A40A1B1A24C9719600608DF7 /* AddLecturer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A40A1B1924C9719600608DF7 /* AddLecturer.storyboard */; };
-		A40A1B1C24C971B000608DF7 /* AddClassroom.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A40A1B1B24C971B000608DF7 /* AddClassroom.storyboard */; };
 		A420F45024AA4C5200393F74 /* CommonTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = A420F44F24AA4C5200393F74 /* CommonTypes.swift */; };
 		A420F45324AA4E6F00393F74 /* UserDefaults+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = A420F45224AA4E6F00393F74 /* UserDefaults+Util.swift */; };
 		A420F45B24AA518E00393F74 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A420F45A24AA518E00393F74 /* LoginViewModel.swift */; };
@@ -35,12 +15,9 @@
 		A420F45F24AA54BC00393F74 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A420F45E24AA54BC00393F74 /* Home.storyboard */; };
 		A420F46124AA54D600393F74 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A420F46024AA54D600393F74 /* HomeViewController.swift */; };
 		A420F46324AA54EB00393F74 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A420F46224AA54EB00393F74 /* HomeViewModel.swift */; };
-		A420F49124AD123700393F74 /* StudentClassPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A420F49024AD123700393F74 /* StudentClassPasswordViewModel.swift */; };
-		A420F49324AD125600393F74 /* StudentClassPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A420F49224AD125600393F74 /* StudentClassPasswordViewController.swift */; };
+		A420F49124AD123700393F74 /* StudentClassViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A420F49024AD123700393F74 /* StudentClassViewModel.swift */; };
+		A420F49324AD125600393F74 /* StudentClassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A420F49224AD125600393F74 /* StudentClassViewController.swift */; };
 		A420F49524AD126000393F74 /* StudentClass.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A420F49424AD126000393F74 /* StudentClass.storyboard */; };
-		A420F49924AD12B100393F74 /* TeacherClassViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A420F49824AD12B100393F74 /* TeacherClassViewModel.swift */; };
-		A420F49B24AD12DB00393F74 /* TeacherClassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A420F49A24AD12DB00393F74 /* TeacherClassViewController.swift */; };
-		A420F49D24AD12E800393F74 /* TeacherClass.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A420F49C24AD12E800393F74 /* TeacherClass.storyboard */; };
 		A428E4AE24A697E200123AEC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A428E4AD24A697E200123AEC /* AppDelegate.swift */; };
 		A428E4B224A697E200123AEC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A428E4B124A697E200123AEC /* LoginViewController.swift */; };
 		A428E4B524A697E200123AEC /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A428E4B324A697E200123AEC /* Login.storyboard */; };
@@ -56,24 +33,16 @@
 		A444950524AE93FD006FF70A /* BaseNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A444950424AE93FD006FF70A /* BaseNavigationViewController.swift */; };
 		A444950724AE99C3006FF70A /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A444950624AE99C3006FF70A /* HomeTableViewCell.swift */; };
 		A444950A24AE99DD006FF70A /* SideMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A444950924AE99DD006FF70A /* SideMenuTableViewCell.swift */; };
-		A444950D24AE9C6B006FF70A /* Lesson.swift in Sources */ = {isa = PBXBuildFile; fileRef = A444950C24AE9C6B006FF70A /* Lesson.swift */; };
-		A458647324C036BD0044DA2C /* StudentClassViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A458647224C036BD0044DA2C /* StudentClassViewModel.swift */; };
-		A458647524C036CE0044DA2C /* StudentClassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A458647424C036CE0044DA2C /* StudentClassViewController.swift */; };
+		A4B660C2257634C0007094F6 /* UIViewController+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B660C1257634C0007094F6 /* UIViewController+Util.swift */; };
 		A4B81B6C24C0755D004476B6 /* SideMenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B81B6B24C0755D004476B6 /* SideMenuViewModel.swift */; };
 		A4BC53C724C0586800ECB57B /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BC53C624C0586800ECB57B /* BaseViewModel.swift */; };
 		A4BC53C924C05C0700ECB57B /* KeychainAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BC53C824C05C0700ECB57B /* KeychainAccess.swift */; };
 		A4C6C0C124C04ABB00D1CAAE /* NetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C6C0C024C04ABB00D1CAAE /* NetworkingService.swift */; };
+		A4D34D61256AFCC800A7C7A8 /* HomeMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D34D60256AFCC800A7C7A8 /* HomeMock.swift */; };
+		A4D34D69256AFD9F00A7C7A8 /* Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D34D68256AFD9F00A7C7A8 /* Class.swift */; };
+		A4D34D92256B133700A7C7A8 /* Date+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D34D91256B133700A7C7A8 /* Date+Util.swift */; };
 		A4D3FB0F24BFF5D600A7F13D /* DateConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D3FB0E24BFF5D600A7F13D /* DateConverter.swift */; };
 		A4D3FB1124BFFD8A00A7F13D /* String+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D3FB1024BFFD8A00A7F13D /* String+Util.swift */; };
-		A4DE352924C9486C00F1B625 /* AcademicCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DE352824C9486C00F1B625 /* AcademicCalendar.swift */; };
-		A4DE352B24C949A900F1B625 /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DE352A24C949A900F1B625 /* Student.swift */; };
-		A4DE352D24C94A7600F1B625 /* Discipline.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DE352C24C94A7600F1B625 /* Discipline.swift */; };
-		A4DE352F24C94B6A00F1B625 /* Teaching.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DE352E24C94B6A00F1B625 /* Teaching.swift */; };
-		A4DE353124C94D3600F1B625 /* Lecturer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DE353024C94D3600F1B625 /* Lecturer.swift */; };
-		A4DE353324C94E0D00F1B625 /* Study.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DE353224C94E0D00F1B625 /* Study.swift */; };
-		A4DE353724C957F300F1B625 /* Classroom.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DE353624C957F300F1B625 /* Classroom.swift */; };
-		A4DE353924C958B400F1B625 /* Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DE353824C958B400F1B625 /* Class.swift */; };
-		A4DE353B24C9599B00F1B625 /* Unit.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DE353A24C9599B00F1B625 /* Unit.swift */; };
 		A4F0A69524AFD9F700FEFB0B /* TimeConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F0A69424AFD9F700FEFB0B /* TimeConverter.swift */; };
 		A4FB76C224F7601D00C5F33F /* AddClassViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FB76C024F7601C00C5F33F /* AddClassViewModel.swift */; };
 		A4FB76C324F7601D00C5F33F /* AddClassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FB76C124F7601D00C5F33F /* AddClassViewController.swift */; };
@@ -102,26 +71,6 @@
 /* Begin PBXFileReference section */
 		0E58C440E059B6E983908690 /* Pods-ConPresApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ConPresApp.debug.xcconfig"; path = "Target Support Files/Pods-ConPresApp/Pods-ConPresApp.debug.xcconfig"; sourceTree = "<group>"; };
 		9FEDB46C1E4E48402AFD3949 /* Pods-ConPresApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ConPresApp.release.xcconfig"; path = "Target Support Files/Pods-ConPresApp/Pods-ConPresApp.release.xcconfig"; sourceTree = "<group>"; };
-		A40A1AEA24C965C500608DF7 /* RegisterAttendanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterAttendanceViewController.swift; sourceTree = "<group>"; };
-		A40A1AEC24C9661D00608DF7 /* RegisterAttendance.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RegisterAttendance.storyboard; sourceTree = "<group>"; };
-		A40A1AF924C96F0100608DF7 /* CheckAttendanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckAttendanceViewController.swift; sourceTree = "<group>"; };
-		A40A1AFB24C96F2000608DF7 /* StudentsAttendanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentsAttendanceViewController.swift; sourceTree = "<group>"; };
-		A40A1AFD24C96F2E00608DF7 /* SendToSIGAAViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendToSIGAAViewController.swift; sourceTree = "<group>"; };
-		A40A1AFF24C96F3900608DF7 /* LecturersAttendanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LecturersAttendanceViewController.swift; sourceTree = "<group>"; };
-		A40A1B0124C96F4C00608DF7 /* OfferClassViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferClassViewController.swift; sourceTree = "<group>"; };
-		A40A1B0324C96F5900608DF7 /* AddCalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCalendarViewController.swift; sourceTree = "<group>"; };
-		A40A1B0524C96F6700608DF7 /* AddDisciplineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDisciplineViewController.swift; sourceTree = "<group>"; };
-		A40A1B0724C96F7400608DF7 /* AddLecturerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLecturerViewController.swift; sourceTree = "<group>"; };
-		A40A1B0924C96F7D00608DF7 /* AddClassroomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddClassroomViewController.swift; sourceTree = "<group>"; };
-		A40A1B0B24C970C600608DF7 /* CheckAttendance.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CheckAttendance.storyboard; sourceTree = "<group>"; };
-		A40A1B0D24C9710B00608DF7 /* StudentsAttendance.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = StudentsAttendance.storyboard; sourceTree = "<group>"; };
-		A40A1B0F24C9712300608DF7 /* SendToSIGAA.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SendToSIGAA.storyboard; sourceTree = "<group>"; };
-		A40A1B1124C9713D00608DF7 /* LecturersAttendance.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LecturersAttendance.storyboard; sourceTree = "<group>"; };
-		A40A1B1324C9715200608DF7 /* OfferClass.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OfferClass.storyboard; sourceTree = "<group>"; };
-		A40A1B1524C9716600608DF7 /* AddCalendar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddCalendar.storyboard; sourceTree = "<group>"; };
-		A40A1B1724C9717B00608DF7 /* AddDiscipline.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddDiscipline.storyboard; sourceTree = "<group>"; };
-		A40A1B1924C9719600608DF7 /* AddLecturer.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddLecturer.storyboard; sourceTree = "<group>"; };
-		A40A1B1B24C971B000608DF7 /* AddClassroom.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddClassroom.storyboard; sourceTree = "<group>"; };
 		A420F44F24AA4C5200393F74 /* CommonTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonTypes.swift; sourceTree = "<group>"; };
 		A420F45224AA4E6F00393F74 /* UserDefaults+Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Util.swift"; sourceTree = "<group>"; };
 		A420F45A24AA518E00393F74 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
@@ -129,12 +78,9 @@
 		A420F45E24AA54BC00393F74 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		A420F46024AA54D600393F74 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		A420F46224AA54EB00393F74 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
-		A420F49024AD123700393F74 /* StudentClassPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentClassPasswordViewModel.swift; sourceTree = "<group>"; };
-		A420F49224AD125600393F74 /* StudentClassPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentClassPasswordViewController.swift; sourceTree = "<group>"; };
+		A420F49024AD123700393F74 /* StudentClassViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentClassViewModel.swift; sourceTree = "<group>"; };
+		A420F49224AD125600393F74 /* StudentClassViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentClassViewController.swift; sourceTree = "<group>"; };
 		A420F49424AD126000393F74 /* StudentClass.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = StudentClass.storyboard; sourceTree = "<group>"; };
-		A420F49824AD12B100393F74 /* TeacherClassViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherClassViewModel.swift; sourceTree = "<group>"; };
-		A420F49A24AD12DB00393F74 /* TeacherClassViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherClassViewController.swift; sourceTree = "<group>"; };
-		A420F49C24AD12E800393F74 /* TeacherClass.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TeacherClass.storyboard; sourceTree = "<group>"; };
 		A428E4AA24A697E200123AEC /* ConPresApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ConPresApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A428E4AD24A697E200123AEC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A428E4B124A697E200123AEC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -156,24 +102,16 @@
 		A444950424AE93FD006FF70A /* BaseNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationViewController.swift; sourceTree = "<group>"; };
 		A444950624AE99C3006FF70A /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
 		A444950924AE99DD006FF70A /* SideMenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuTableViewCell.swift; sourceTree = "<group>"; };
-		A444950C24AE9C6B006FF70A /* Lesson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lesson.swift; sourceTree = "<group>"; };
-		A458647224C036BD0044DA2C /* StudentClassViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentClassViewModel.swift; sourceTree = "<group>"; };
-		A458647424C036CE0044DA2C /* StudentClassViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentClassViewController.swift; sourceTree = "<group>"; };
+		A4B660C1257634C0007094F6 /* UIViewController+Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Util.swift"; sourceTree = "<group>"; };
 		A4B81B6B24C0755D004476B6 /* SideMenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewModel.swift; sourceTree = "<group>"; };
 		A4BC53C624C0586800ECB57B /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		A4BC53C824C05C0700ECB57B /* KeychainAccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainAccess.swift; sourceTree = "<group>"; };
 		A4C6C0C024C04ABB00D1CAAE /* NetworkingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingService.swift; sourceTree = "<group>"; };
+		A4D34D60256AFCC800A7C7A8 /* HomeMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMock.swift; sourceTree = "<group>"; };
+		A4D34D68256AFD9F00A7C7A8 /* Class.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Class.swift; sourceTree = "<group>"; };
+		A4D34D91256B133700A7C7A8 /* Date+Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Util.swift"; sourceTree = "<group>"; };
 		A4D3FB0E24BFF5D600A7F13D /* DateConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateConverter.swift; sourceTree = "<group>"; };
 		A4D3FB1024BFFD8A00A7F13D /* String+Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Util.swift"; sourceTree = "<group>"; };
-		A4DE352824C9486C00F1B625 /* AcademicCalendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcademicCalendar.swift; sourceTree = "<group>"; };
-		A4DE352A24C949A900F1B625 /* Student.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
-		A4DE352C24C94A7600F1B625 /* Discipline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Discipline.swift; sourceTree = "<group>"; };
-		A4DE352E24C94B6A00F1B625 /* Teaching.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Teaching.swift; sourceTree = "<group>"; };
-		A4DE353024C94D3600F1B625 /* Lecturer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lecturer.swift; sourceTree = "<group>"; };
-		A4DE353224C94E0D00F1B625 /* Study.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Study.swift; sourceTree = "<group>"; };
-		A4DE353624C957F300F1B625 /* Classroom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Classroom.swift; sourceTree = "<group>"; };
-		A4DE353824C958B400F1B625 /* Class.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Class.swift; sourceTree = "<group>"; };
-		A4DE353A24C9599B00F1B625 /* Unit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Unit.swift; sourceTree = "<group>"; };
 		A4F0A69424AFD9F700FEFB0B /* TimeConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeConverter.swift; sourceTree = "<group>"; };
 		A4FB76C024F7601C00C5F33F /* AddClassViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddClassViewModel.swift; sourceTree = "<group>"; };
 		A4FB76C124F7601D00C5F33F /* AddClassViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddClassViewController.swift; sourceTree = "<group>"; };
@@ -226,96 +164,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		A40A1AE924C9658D00608DF7 /* RegisterAttendance */ = {
-			isa = PBXGroup;
-			children = (
-				A40A1AEA24C965C500608DF7 /* RegisterAttendanceViewController.swift */,
-				A40A1AEC24C9661D00608DF7 /* RegisterAttendance.storyboard */,
-			);
-			path = RegisterAttendance;
-			sourceTree = "<group>";
-		};
-		A40A1AF024C96E0B00608DF7 /* CheckAttendance */ = {
-			isa = PBXGroup;
-			children = (
-				A40A1AF924C96F0100608DF7 /* CheckAttendanceViewController.swift */,
-				A40A1B0B24C970C600608DF7 /* CheckAttendance.storyboard */,
-			);
-			path = CheckAttendance;
-			sourceTree = "<group>";
-		};
-		A40A1AF124C96E1600608DF7 /* StudentsAttendance */ = {
-			isa = PBXGroup;
-			children = (
-				A40A1AFB24C96F2000608DF7 /* StudentsAttendanceViewController.swift */,
-				A40A1B0D24C9710B00608DF7 /* StudentsAttendance.storyboard */,
-			);
-			path = StudentsAttendance;
-			sourceTree = "<group>";
-		};
-		A40A1AF224C96E4500608DF7 /* SendToSIGAA */ = {
-			isa = PBXGroup;
-			children = (
-				A40A1AFD24C96F2E00608DF7 /* SendToSIGAAViewController.swift */,
-				A40A1B0F24C9712300608DF7 /* SendToSIGAA.storyboard */,
-			);
-			path = SendToSIGAA;
-			sourceTree = "<group>";
-		};
-		A40A1AF324C96E4E00608DF7 /* LecturersAttendance */ = {
-			isa = PBXGroup;
-			children = (
-				A40A1AFF24C96F3900608DF7 /* LecturersAttendanceViewController.swift */,
-				A40A1B1124C9713D00608DF7 /* LecturersAttendance.storyboard */,
-			);
-			path = LecturersAttendance;
-			sourceTree = "<group>";
-		};
-		A40A1AF424C96E5D00608DF7 /* OfferClass */ = {
-			isa = PBXGroup;
-			children = (
-				A40A1B0124C96F4C00608DF7 /* OfferClassViewController.swift */,
-				A40A1B1324C9715200608DF7 /* OfferClass.storyboard */,
-			);
-			path = OfferClass;
-			sourceTree = "<group>";
-		};
-		A40A1AF524C96E6500608DF7 /* AddCalendar */ = {
-			isa = PBXGroup;
-			children = (
-				A40A1B0324C96F5900608DF7 /* AddCalendarViewController.swift */,
-				A40A1B1524C9716600608DF7 /* AddCalendar.storyboard */,
-			);
-			path = AddCalendar;
-			sourceTree = "<group>";
-		};
-		A40A1AF624C96E6D00608DF7 /* AddDiscipline */ = {
-			isa = PBXGroup;
-			children = (
-				A40A1B0524C96F6700608DF7 /* AddDisciplineViewController.swift */,
-				A40A1B1724C9717B00608DF7 /* AddDiscipline.storyboard */,
-			);
-			path = AddDiscipline;
-			sourceTree = "<group>";
-		};
-		A40A1AF724C96E7300608DF7 /* AddLecturer */ = {
-			isa = PBXGroup;
-			children = (
-				A40A1B0724C96F7400608DF7 /* AddLecturerViewController.swift */,
-				A40A1B1924C9719600608DF7 /* AddLecturer.storyboard */,
-			);
-			path = AddLecturer;
-			sourceTree = "<group>";
-		};
-		A40A1AF824C96E9000608DF7 /* AddClassroom */ = {
-			isa = PBXGroup;
-			children = (
-				A40A1B0924C96F7D00608DF7 /* AddClassroomViewController.swift */,
-				A40A1B1B24C971B000608DF7 /* AddClassroom.storyboard */,
-			);
-			path = AddClassroom;
-			sourceTree = "<group>";
-		};
 		A420F44E24AA4C3800393F74 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -332,6 +180,8 @@
 				A420F45224AA4E6F00393F74 /* UserDefaults+Util.swift */,
 				A420F45C24AA533100393F74 /* UIStoryboard+Util.swift */,
 				A4D3FB1024BFFD8A00A7F13D /* String+Util.swift */,
+				A4D34D91256B133700A7C7A8 /* Date+Util.swift */,
+				A4B660C1257634C0007094F6 /* UIViewController+Util.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -339,16 +189,7 @@
 		A420F45424AA4ED600393F74 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				A444950C24AE9C6B006FF70A /* Lesson.swift */,
-				A4DE352824C9486C00F1B625 /* AcademicCalendar.swift */,
-				A4DE352A24C949A900F1B625 /* Student.swift */,
-				A4DE352C24C94A7600F1B625 /* Discipline.swift */,
-				A4DE352E24C94B6A00F1B625 /* Teaching.swift */,
-				A4DE353024C94D3600F1B625 /* Lecturer.swift */,
-				A4DE353224C94E0D00F1B625 /* Study.swift */,
-				A4DE353624C957F300F1B625 /* Classroom.swift */,
-				A4DE353824C958B400F1B625 /* Class.swift */,
-				A4DE353A24C9599B00F1B625 /* Unit.swift */,
+				A4D34D68256AFD9F00A7C7A8 /* Class.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -374,20 +215,10 @@
 			isa = PBXGroup;
 			children = (
 				A420F49424AD126000393F74 /* StudentClass.storyboard */,
-				A458647624C0371A0044DA2C /* StudentClassPassword */,
-				A458646F24C036880044DA2C /* StudentClass */,
+				A420F49024AD123700393F74 /* StudentClassViewModel.swift */,
+				A420F49224AD125600393F74 /* StudentClassViewController.swift */,
 			);
 			path = StudentClass;
-			sourceTree = "<group>";
-		};
-		A420F48724AD10C500393F74 /* TeacherClass */ = {
-			isa = PBXGroup;
-			children = (
-				A420F49824AD12B100393F74 /* TeacherClassViewModel.swift */,
-				A420F49A24AD12DB00393F74 /* TeacherClassViewController.swift */,
-				A420F49C24AD12E800393F74 /* TeacherClass.storyboard */,
-			);
-			path = TeacherClass;
 			sourceTree = "<group>";
 		};
 		A428E4A124A697E200123AEC = {
@@ -457,17 +288,6 @@
 				A420F46624AAD4E900393F74 /* SideMenu */,
 				A428E4E024A6B33B00123AEC /* Main */,
 				A420F48624AD109D00393F74 /* StudentClass */,
-				A420F48724AD10C500393F74 /* TeacherClass */,
-				A40A1AE924C9658D00608DF7 /* RegisterAttendance */,
-				A40A1AF024C96E0B00608DF7 /* CheckAttendance */,
-				A40A1AF124C96E1600608DF7 /* StudentsAttendance */,
-				A40A1AF224C96E4500608DF7 /* SendToSIGAA */,
-				A40A1AF324C96E4E00608DF7 /* LecturersAttendance */,
-				A40A1AF424C96E5D00608DF7 /* OfferClass */,
-				A40A1AF524C96E6500608DF7 /* AddCalendar */,
-				A40A1AF624C96E6D00608DF7 /* AddDiscipline */,
-				A40A1AF724C96E7300608DF7 /* AddLecturer */,
-				A40A1AF824C96E9000608DF7 /* AddClassroom */,
 			);
 			path = Flow;
 			sourceTree = "<group>";
@@ -527,30 +347,13 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
-		A458646F24C036880044DA2C /* StudentClass */ = {
-			isa = PBXGroup;
-			children = (
-				A458647224C036BD0044DA2C /* StudentClassViewModel.swift */,
-				A458647424C036CE0044DA2C /* StudentClassViewController.swift */,
-			);
-			path = StudentClass;
-			sourceTree = "<group>";
-		};
-		A458647624C0371A0044DA2C /* StudentClassPassword */ = {
-			isa = PBXGroup;
-			children = (
-				A420F49024AD123700393F74 /* StudentClassPasswordViewModel.swift */,
-				A420F49224AD125600393F74 /* StudentClassPasswordViewController.swift */,
-			);
-			path = StudentClassPassword;
-			sourceTree = "<group>";
-		};
 		A4B81B6224C064EF004476B6 /* Home */ = {
 			isa = PBXGroup;
 			children = (
 				A420F46224AA54EB00393F74 /* HomeViewModel.swift */,
 				A420F46024AA54D600393F74 /* HomeViewController.swift */,
 				A420F45E24AA54BC00393F74 /* Home.storyboard */,
+				A4D34D60256AFCC800A7C7A8 /* HomeMock.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -716,23 +519,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				A428E4BA24A697E700123AEC /* LaunchScreen.storyboard in Resources */,
-				A40A1B1A24C9719600608DF7 /* AddLecturer.storyboard in Resources */,
-				A40A1B0E24C9710B00608DF7 /* StudentsAttendance.storyboard in Resources */,
 				A428E4B724A697E700123AEC /* Assets.xcassets in Resources */,
 				A428E4FD24A6B76F00123AEC /* GoogleService-Info.plist in Resources */,
 				A420F45F24AA54BC00393F74 /* Home.storyboard in Resources */,
-				A40A1B0C24C970C600608DF7 /* CheckAttendance.storyboard in Resources */,
-				A40A1B1624C9716600608DF7 /* AddCalendar.storyboard in Resources */,
-				A40A1AED24C9661D00608DF7 /* RegisterAttendance.storyboard in Resources */,
-				A40A1B1224C9713D00608DF7 /* LecturersAttendance.storyboard in Resources */,
-				A40A1B1C24C971B000608DF7 /* AddClassroom.storyboard in Resources */,
 				A428E4FB24A6B64E00123AEC /* Podfile in Resources */,
-				A420F49D24AD12E800393F74 /* TeacherClass.storyboard in Resources */,
-				A40A1B1424C9715200608DF7 /* OfferClass.storyboard in Resources */,
-				A40A1B1824C9717B00608DF7 /* AddDiscipline.storyboard in Resources */,
 				A428E4B524A697E200123AEC /* Login.storyboard in Resources */,
 				A420F49524AD126000393F74 /* StudentClass.storyboard in Resources */,
-				A40A1B1024C9712300608DF7 /* SendToSIGAA.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -816,58 +608,38 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A40A1B0424C96F5900608DF7 /* AddCalendarViewController.swift in Sources */,
-				A4DE353B24C9599B00F1B625 /* Unit.swift in Sources */,
-				A40A1B0624C96F6700608DF7 /* AddDisciplineViewController.swift in Sources */,
-				A40A1AFC24C96F2000608DF7 /* StudentsAttendanceViewController.swift in Sources */,
 				A428E4B224A697E200123AEC /* LoginViewController.swift in Sources */,
 				A428E4E224A6B35500123AEC /* BaseViewController.swift in Sources */,
 				A420F45D24AA533100393F74 /* UIStoryboard+Util.swift in Sources */,
 				A444950524AE93FD006FF70A /* BaseNavigationViewController.swift in Sources */,
 				A428E4AE24A697E200123AEC /* AppDelegate.swift in Sources */,
-				A4DE352D24C94A7600F1B625 /* Discipline.swift in Sources */,
-				A4DE353924C958B400F1B625 /* Class.swift in Sources */,
-				A444950D24AE9C6B006FF70A /* Lesson.swift in Sources */,
-				A458647524C036CE0044DA2C /* StudentClassViewController.swift in Sources */,
 				A4BC53C924C05C0700ECB57B /* KeychainAccess.swift in Sources */,
 				A4FB76C324F7601D00C5F33F /* AddClassViewController.swift in Sources */,
 				A4BC53C724C0586800ECB57B /* BaseViewModel.swift in Sources */,
-				A4DE353724C957F300F1B625 /* Classroom.swift in Sources */,
-				A40A1AFA24C96F0100608DF7 /* CheckAttendanceViewController.swift in Sources */,
+				A4D34D69256AFD9F00A7C7A8 /* Class.swift in Sources */,
+				A4D34D61256AFCC800A7C7A8 /* HomeMock.swift in Sources */,
 				A420F46124AA54D600393F74 /* HomeViewController.swift in Sources */,
-				A420F49924AD12B100393F74 /* TeacherClassViewModel.swift in Sources */,
 				A444950324AE69E7006FF70A /* SideMenuTableViewController.swift in Sources */,
-				A420F49B24AD12DB00393F74 /* TeacherClassViewController.swift in Sources */,
-				A420F49124AD123700393F74 /* StudentClassPasswordViewModel.swift in Sources */,
+				A420F49124AD123700393F74 /* StudentClassViewModel.swift in Sources */,
 				A420F45324AA4E6F00393F74 /* UserDefaults+Util.swift in Sources */,
-				A4DE352B24C949A900F1B625 /* Student.swift in Sources */,
-				A40A1AEB24C965C500608DF7 /* RegisterAttendanceViewController.swift in Sources */,
+				A4D34D92256B133700A7C7A8 /* Date+Util.swift in Sources */,
 				A4FB76CD24F77ECD00C5F33F /* AddSelectedClassViewModel.swift in Sources */,
 				A420F45024AA4C5200393F74 /* CommonTypes.swift in Sources */,
 				A4FB76CB24F77EBA00C5F33F /* AddSelectedClassViewController.swift in Sources */,
-				A4DE352F24C94B6A00F1B625 /* Teaching.swift in Sources */,
 				A4F0A69524AFD9F700FEFB0B /* TimeConverter.swift in Sources */,
-				A4DE352924C9486C00F1B625 /* AcademicCalendar.swift in Sources */,
 				A4FB76C224F7601D00C5F33F /* AddClassViewModel.swift in Sources */,
 				A420F45B24AA518E00393F74 /* LoginViewModel.swift in Sources */,
-				A420F49324AD125600393F74 /* StudentClassPasswordViewController.swift in Sources */,
-				A40A1B0224C96F4C00608DF7 /* OfferClassViewController.swift in Sources */,
+				A420F49324AD125600393F74 /* StudentClassViewController.swift in Sources */,
 				A4D3FB0F24BFF5D600A7F13D /* DateConverter.swift in Sources */,
-				A458647324C036BD0044DA2C /* StudentClassViewModel.swift in Sources */,
-				A40A1AFE24C96F2E00608DF7 /* SendToSIGAAViewController.swift in Sources */,
-				A4DE353324C94E0D00F1B625 /* Study.swift in Sources */,
 				A428E4E824A6B45D00123AEC /* Localizable.swift in Sources */,
 				A444950A24AE99DD006FF70A /* SideMenuTableViewCell.swift in Sources */,
-				A40A1B0824C96F7400608DF7 /* AddLecturerViewController.swift in Sources */,
-				A4DE353124C94D3600F1B625 /* Lecturer.swift in Sources */,
 				A4FB76C724F766A400C5F33F /* AddClassTableViewCell.swift in Sources */,
 				A444950724AE99C3006FF70A /* HomeTableViewCell.swift in Sources */,
 				A4D3FB1124BFFD8A00A7F13D /* String+Util.swift in Sources */,
+				A4B660C2257634C0007094F6 /* UIViewController+Util.swift in Sources */,
 				A4C6C0C124C04ABB00D1CAAE /* NetworkingService.swift in Sources */,
-				A40A1B0024C96F3900608DF7 /* LecturersAttendanceViewController.swift in Sources */,
 				A4B81B6C24C0755D004476B6 /* SideMenuViewModel.swift in Sources */,
 				A420F46324AA54EB00393F74 /* HomeViewModel.swift in Sources */,
-				A40A1B0A24C96F7E00608DF7 /* AddClassroomViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

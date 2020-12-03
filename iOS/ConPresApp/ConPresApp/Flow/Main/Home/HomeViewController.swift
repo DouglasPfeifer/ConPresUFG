@@ -11,7 +11,7 @@ import SideMenu
 
 class HomeViewController: BaseViewController {
     
-    // MARK: Variables
+    // MARK: Properties
     @IBOutlet weak var menuButton: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var addButton: UIBarButtonItem!
@@ -81,16 +81,15 @@ class HomeViewController: BaseViewController {
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 7
+        return viewModel.numberOfSections
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        let dayOfTheWeek = viewModel.getDayOfTheWeek(weekDay: section)
-        return "\(dayOfTheWeek)"
+        return viewModel.getHeaderTitleFor(section: section)
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {        
+        return viewModel.studentClasses.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -100,33 +99,37 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: StoryboardIdentifier.homeCell.rawValue, for: indexPath) as! HomeTableViewCell
 
-        cell.courseLabel.text = "Engenharia de Requisitos"
-        cell.lecturerLabel.text = "Juliano Lopes de Oliveira"
-        cell.locationLabel.text = "152, INF, CAS"
-        cell.scheduleLabel.text = "14:00 às 15:40"
+        let header = viewModel.getHeaderTitleFor(section: indexPath.section)
+        let row = indexPath.row
+        let rowClass = viewModel.classesByHeader[header!]![row]
+        let schedule = viewModel.getClassTimeInterval(rowClass: rowClass)
+        
+        cell.courseLabel.text = rowClass.discipline
+        cell.lecturerLabel.text = rowClass.lecturer
+        cell.classroomLabel.text = rowClass.classroom
+        cell.scheduleLabel.text = schedule
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-                
+        
+        
         if viewModel.userType == UserTypes.student.rawValue {
-            self.performSegue(withIdentifier: StoryboardIdentifier.showAskStudentClassPasswordSegue.rawValue, sender: nil)
-        } else if viewModel.userType == UserTypes.teacher.rawValue {
-            self.performSegue(withIdentifier: StoryboardIdentifier.showTeacherClassSegue.rawValue, sender: nil)
-        } else if viewModel.userType == UserTypes.NDE.rawValue {
-            
-        } else if viewModel.userType == UserTypes.courseCoordinator.rawValue {
-            
+            viewModel.setCurrentClass(section: indexPath.section, row: indexPath.row)
+            self.performSegue(withIdentifier: StoryboardIdentifier.showStudentClassSegue.rawValue, sender: nil)
         }
     }
     
     // MARK: Segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier {
-        case StoryboardIdentifier.showTeacherClassSegue.rawValue:
-            let teacherClassViewController = segue.destination as! TeacherClassViewController
+        case StoryboardIdentifier.showStudentClassSegue.rawValue:
+            let studentClassViewController = segue.destination as! StudentClassViewController
+            if let currentClass = viewModel.selectedClass {
+                studentClassViewController.viewModel = StudentClassViewModel(currentClass: currentClass)
+            }
         case StoryboardIdentifier.showAddClassSegue.rawValue:
             let addClassroomViewController = segue.destination as! AddClassViewController
         default:
