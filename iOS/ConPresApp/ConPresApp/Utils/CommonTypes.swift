@@ -13,6 +13,7 @@ enum StoryboardName: String {
     case home = "Home"
     case sideMenu = "SideMenu"
     case studentClass = "StudentClass"
+    case studentCheckAttendance = "StudentCheckAttendance"
 }
 
 enum StoryboardIdentifier: String {
@@ -22,11 +23,13 @@ enum StoryboardIdentifier: String {
     case homeViewController = "homeViewController"
     case sideMenuViewController = "sideMenuViewController"
     case studentClassViewController = "studentClassViewController"
+    case studentDisciplineViewController = "StudentDisciplineViewController"
     
     // Cells
     case sideMenuCell = "sideMenuCell"
     case homeCell = "homeCell"
     case addClassCell = "addClassCell"
+    case studentDisciplineCell = "studentDisciplineCell"
     
     // Segues
     case showHomeSegue = "showHomeSegue"
@@ -41,6 +44,6 @@ enum UserTypes: Int {
 }
 
 enum NumMenuOptions {
-    static let student = 2
-    static let teacher = 4
+    static let student = 1
+    static let teacher = 3
 }

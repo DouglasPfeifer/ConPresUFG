@@ -16,7 +16,7 @@ class SideMenuTableViewController: UITableViewController {
     
     var baseController: UINavigationController!
     
-//    var checkAttendanceVC = CheckAttendanceViewController()
+    var studentDisciplineVC = StudentDisciplineViewController()
 //    var studentsAttendanceVC = StudentsAttendanceViewController()
 //    var sendToSIGAAVC = SendToSIGAAViewController()
     
@@ -48,14 +48,10 @@ class SideMenuTableViewController: UITableViewController {
     
     // MARK: Functions
     func initViewControllers() {
-//        checkAttendanceVC = UIStoryboard.instantiateController(
-//            fromStoryboardNamed: StoryboardName.checkAttendance.rawValue,
-//            usingControllerIdentifier: StoryboardIdentifier.checkAttendanceViewController.rawValue
-//        )
-//        studentsAttendanceVC = UIStoryboard.instantiateController(
-//            fromStoryboardNamed: StoryboardName.studentsAttendance.rawValue,
-//            usingControllerIdentifier: StoryboardIdentifier.studentsAttendanceViewController.rawValue
-//        )
+        studentDisciplineVC = UIStoryboard.instantiateController(
+            fromStoryboardNamed: StoryboardName.studentCheckAttendance.rawValue,
+            usingControllerIdentifier: StoryboardIdentifier.studentDisciplineViewController.rawValue
+        )
 //        sendToSIGAAVC = UIStoryboard.instantiateController(
 //            fromStoryboardNamed: StoryboardName.sendToSIGAA.rawValue,
 //            usingControllerIdentifier: StoryboardIdentifier.sendToSIGAAViewController.rawValue
@@ -83,26 +79,22 @@ class SideMenuTableViewController: UITableViewController {
         backgroundView.backgroundColor = .gray
         cell.selectedBackgroundView = backgroundView
         
-//        switch viewModel.userType {
-//        case UserTypes.student.rawValue:
-//            if row == 0 {
-//                cell.titleLabel?.text = Localizable.Menu.registerAttendance
-//            } else if row == 1 {
-//                cell.titleLabel?.text = Localizable.Menu.checkAttendance
-//            }
-//        case UserTypes.teacher.rawValue:
-//            if row == 0 {
-//                cell.titleLabel?.text = Localizable.Menu.registerAttendance
-//            } else if row == 1 {
-//                cell.titleLabel?.text = Localizable.Menu.checkAttendance
-//            } else if row == 2 {
-//                cell.titleLabel?.text = Localizable.Menu.studentsAttendance
-//            } else if row == 3 {
-//                cell.titleLabel?.text = Localizable.Menu.sendToSIGAA
-//            }
-//        default:
-//            return cell
-//        }
+        switch viewModel.userType {
+        case UserTypes.student.rawValue:
+            if row == 0 {
+                cell.titleLabel?.text = Localizable.Menu.checkAttendance
+            }
+        case UserTypes.teacher.rawValue:
+            if row == 0 {
+                cell.titleLabel?.text = Localizable.Menu.checkAttendance
+            } else if row == 1 {
+                cell.titleLabel?.text = Localizable.Menu.studentsAttendance
+            } else if row == 2 {
+                cell.titleLabel?.text = Localizable.Menu.sendToSIGAA
+            }
+        default:
+            return cell
+        }
         return cell
     }
 
@@ -112,32 +104,31 @@ class SideMenuTableViewController: UITableViewController {
         tableView.deselectRow(at: indexPath, animated: true)
         
         
-//        switch viewModel.userType {
-//        case UserTypes.student.rawValue:
-//            switch row {
-//            case 0:
-//                self.navigationController?.pushViewController(registerAttendanceVC, animated: true)
-//            case 1:
+        switch viewModel.userType {
+        case UserTypes.student.rawValue:
+            switch row {
+            case 0:
+                self.navigationController?.pushViewController(studentDisciplineVC, animated: true)
+            default:
+                break
+            }
+        case UserTypes.teacher.rawValue:
+            switch row {
+            case 0:
+                break
 //                self.navigationController?.pushViewController(checkAttendanceVC, animated: true)
-//            default:
-//                break
-//            }
-//        case UserTypes.teacher.rawValue:
-//            switch row {
-//            case 0:
-//                self.navigationController?.pushViewController(registerAttendanceVC, animated: true)
-//            case 1:
-//                self.navigationController?.pushViewController(checkAttendanceVC, animated: true)
-//            case 2:
+            case 1:
+                break
 //                self.navigationController?.pushViewController(studentsAttendanceVC, animated: true)
-//            case 3:
+            case 2:
+                break
 //                self.navigationController?.pushViewController(sendToSIGAAVC, animated: true)
-//            default:
-//                break
-//            }
-//        default:
-//            break
-//        }
+            default:
+                break
+            }
+        default:
+            break
+        }
     }
 
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

@@ -11,7 +11,7 @@ import Foundation
 class HomeViewModel: BaseViewModel {
     
     // MARK: Properties
-    let studentClasses = HomeMock().mockStudentClass
+    var studentClasses = StudentClassesMock().mockStudentClass
     var headerTitleArray = [String?]()
     var numberOfSections: Int! = 0
     var classesByHeader: [String: [Class]] = [String: [Class]]()
@@ -26,6 +26,8 @@ class HomeViewModel: BaseViewModel {
     
     // MARK: TableView functions
     private func setSections() {
+        sortStudentClasses()
+
         numberOfSections = 0
         headerTitleArray.removeAll()
         classesByHeader.removeAll()
@@ -74,6 +76,12 @@ class HomeViewModel: BaseViewModel {
     }
     
     // MARK: Model functions
+    func sortStudentClasses() {
+        studentClasses = studentClasses.sorted(by: {
+            $0.startDate! > $1.startDate!
+        })
+    }
+    
     func setCurrentClass(section: Int, row: Int) {
         guard let key = getHeaderTitleFor(section: section),
               let currentClass = classesByHeader[key]?[row] else { return }

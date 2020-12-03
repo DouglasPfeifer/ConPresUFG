@@ -100,8 +100,9 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         return viewModel.getHeaderTitleFor(section: section)
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {        
-        return viewModel.studentClasses.count
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        guard let numberOfRows = viewModel.getNumberRowsInSection(section: section) else { return 0 }
+        return numberOfRows
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -111,9 +112,10 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: StoryboardIdentifier.homeCell.rawValue, for: indexPath) as! HomeTableViewCell
 
-        let header = viewModel.getHeaderTitleFor(section: indexPath.section)
+        guard let header = viewModel.getHeaderTitleFor(section: indexPath.section) else { return cell }
+        guard let sectionClasses = viewModel.classesByHeader[header] else { return cell }
         let row = indexPath.row
-        let rowClass = viewModel.classesByHeader[header!]![row]
+        let rowClass = sectionClasses[row]
         let schedule = viewModel.getClassTimeInterval(rowClass: rowClass)
         
         cell.courseLabel.text = rowClass.discipline

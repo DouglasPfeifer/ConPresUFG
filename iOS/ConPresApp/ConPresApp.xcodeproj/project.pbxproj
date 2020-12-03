@@ -38,8 +38,12 @@
 		A4BC53C724C0586800ECB57B /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BC53C624C0586800ECB57B /* BaseViewModel.swift */; };
 		A4BC53C924C05C0700ECB57B /* KeychainAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BC53C824C05C0700ECB57B /* KeychainAccess.swift */; };
 		A4C30E452578890E00F859DA /* UIBarButtonItem+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C30E442578890E00F859DA /* UIBarButtonItem+Util.swift */; };
+		A4C30E5025788D8D00F859DA /* StudentDisciplineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C30E4F25788D8D00F859DA /* StudentDisciplineViewController.swift */; };
+		A4C30E5525788DA000F859DA /* StudentCheckAttendance.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4C30E5425788DA000F859DA /* StudentCheckAttendance.storyboard */; };
+		A4C30E5A25788DB700F859DA /* StudentDisciplineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C30E5925788DB700F859DA /* StudentDisciplineViewModel.swift */; };
+		A4C30E682578AC4C00F859DA /* StudentDisciplineTableViewCell in Sources */ = {isa = PBXBuildFile; fileRef = A4C30E672578AC4C00F859DA /* StudentDisciplineTableViewCell */; };
 		A4C6C0C124C04ABB00D1CAAE /* NetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C6C0C024C04ABB00D1CAAE /* NetworkingService.swift */; };
-		A4D34D61256AFCC800A7C7A8 /* HomeMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D34D60256AFCC800A7C7A8 /* HomeMock.swift */; };
+		A4D34D61256AFCC800A7C7A8 /* StudentClassesMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D34D60256AFCC800A7C7A8 /* StudentClassesMock.swift */; };
 		A4D34D69256AFD9F00A7C7A8 /* Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D34D68256AFD9F00A7C7A8 /* Class.swift */; };
 		A4D34D92256B133700A7C7A8 /* Date+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D34D91256B133700A7C7A8 /* Date+Util.swift */; };
 		A4D3FB0F24BFF5D600A7F13D /* DateConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D3FB0E24BFF5D600A7F13D /* DateConverter.swift */; };
@@ -109,8 +113,12 @@
 		A4BC53C624C0586800ECB57B /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		A4BC53C824C05C0700ECB57B /* KeychainAccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainAccess.swift; sourceTree = "<group>"; };
 		A4C30E442578890E00F859DA /* UIBarButtonItem+Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Util.swift"; sourceTree = "<group>"; };
+		A4C30E4F25788D8D00F859DA /* StudentDisciplineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentDisciplineViewController.swift; sourceTree = "<group>"; };
+		A4C30E5425788DA000F859DA /* StudentCheckAttendance.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = StudentCheckAttendance.storyboard; sourceTree = "<group>"; };
+		A4C30E5925788DB700F859DA /* StudentDisciplineViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentDisciplineViewModel.swift; sourceTree = "<group>"; };
+		A4C30E672578AC4C00F859DA /* StudentDisciplineTableViewCell */ = {isa = PBXFileReference; lastKnownFileType = text; path = StudentDisciplineTableViewCell; sourceTree = "<group>"; };
 		A4C6C0C024C04ABB00D1CAAE /* NetworkingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingService.swift; sourceTree = "<group>"; };
-		A4D34D60256AFCC800A7C7A8 /* HomeMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMock.swift; sourceTree = "<group>"; };
+		A4D34D60256AFCC800A7C7A8 /* StudentClassesMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentClassesMock.swift; sourceTree = "<group>"; };
 		A4D34D68256AFD9F00A7C7A8 /* Class.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Class.swift; sourceTree = "<group>"; };
 		A4D34D91256B133700A7C7A8 /* Date+Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Util.swift"; sourceTree = "<group>"; };
 		A4D3FB0E24BFF5D600A7F13D /* DateConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateConverter.swift; sourceTree = "<group>"; };
@@ -293,7 +301,8 @@
 				A428E4F824A6B53700123AEC /* Login */,
 				A420F46624AAD4E900393F74 /* SideMenu */,
 				A428E4E024A6B33B00123AEC /* Main */,
-				A420F48624AD109D00393F74 /* StudentClass */,
+				A4C30E4D25788D2600F859DA /* RegisterAttendance */,
+				A4C30E4C25788CFA00F859DA /* CheckAttendance */,
 			);
 			path = Flow;
 			sourceTree = "<group>";
@@ -349,6 +358,7 @@
 				A444950624AE99C3006FF70A /* HomeTableViewCell.swift */,
 				A444950924AE99DD006FF70A /* SideMenuTableViewCell.swift */,
 				A4FB76C624F766A400C5F33F /* AddClassTableViewCell.swift */,
+				A4C30E672578AC4C00F859DA /* StudentDisciplineTableViewCell */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -356,12 +366,38 @@
 		A4B81B6224C064EF004476B6 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				A420F45E24AA54BC00393F74 /* Home.storyboard */,
 				A420F46224AA54EB00393F74 /* HomeViewModel.swift */,
 				A420F46024AA54D600393F74 /* HomeViewController.swift */,
-				A420F45E24AA54BC00393F74 /* Home.storyboard */,
-				A4D34D60256AFCC800A7C7A8 /* HomeMock.swift */,
+				A4D34D60256AFCC800A7C7A8 /* StudentClassesMock.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		A4C30E4C25788CFA00F859DA /* CheckAttendance */ = {
+			isa = PBXGroup;
+			children = (
+				A4C30E4E25788D3B00F859DA /* StudentCheckAttendance */,
+			);
+			path = CheckAttendance;
+			sourceTree = "<group>";
+		};
+		A4C30E4D25788D2600F859DA /* RegisterAttendance */ = {
+			isa = PBXGroup;
+			children = (
+				A420F48624AD109D00393F74 /* StudentClass */,
+			);
+			path = RegisterAttendance;
+			sourceTree = "<group>";
+		};
+		A4C30E4E25788D3B00F859DA /* StudentCheckAttendance */ = {
+			isa = PBXGroup;
+			children = (
+				A4C30E5425788DA000F859DA /* StudentCheckAttendance.storyboard */,
+				A4C30E5925788DB700F859DA /* StudentDisciplineViewModel.swift */,
+				A4C30E4F25788D8D00F859DA /* StudentDisciplineViewController.swift */,
+			);
+			path = StudentCheckAttendance;
 			sourceTree = "<group>";
 		};
 		A4C6C0BE24C0499300D1CAAE /* Service */ = {
@@ -536,6 +572,7 @@
 				A428E4B724A697E700123AEC /* Assets.xcassets in Resources */,
 				A428E4FD24A6B76F00123AEC /* GoogleService-Info.plist in Resources */,
 				A420F45F24AA54BC00393F74 /* Home.storyboard in Resources */,
+				A4C30E5525788DA000F859DA /* StudentCheckAttendance.storyboard in Resources */,
 				A428E4FB24A6B64E00123AEC /* Podfile in Resources */,
 				A428E4B524A697E200123AEC /* Login.storyboard in Resources */,
 				A420F49524AD126000393F74 /* StudentClass.storyboard in Resources */,
@@ -632,7 +669,7 @@
 				A4FB76C324F7601D00C5F33F /* AddClassViewController.swift in Sources */,
 				A4BC53C724C0586800ECB57B /* BaseViewModel.swift in Sources */,
 				A4D34D69256AFD9F00A7C7A8 /* Class.swift in Sources */,
-				A4D34D61256AFCC800A7C7A8 /* HomeMock.swift in Sources */,
+				A4D34D61256AFCC800A7C7A8 /* StudentClassesMock.swift in Sources */,
 				A420F46124AA54D600393F74 /* HomeViewController.swift in Sources */,
 				A444950324AE69E7006FF70A /* SideMenuTableViewController.swift in Sources */,
 				A420F49124AD123700393F74 /* StudentClassViewModel.swift in Sources */,
@@ -644,12 +681,15 @@
 				A4F0A69524AFD9F700FEFB0B /* TimeConverter.swift in Sources */,
 				A4FB76C224F7601D00C5F33F /* AddClassViewModel.swift in Sources */,
 				A420F45B24AA518E00393F74 /* LoginViewModel.swift in Sources */,
+				A4C30E682578AC4C00F859DA /* StudentDisciplineTableViewCell in Sources */,
 				A420F49324AD125600393F74 /* StudentClassViewController.swift in Sources */,
 				A4D3FB0F24BFF5D600A7F13D /* DateConverter.swift in Sources */,
+				A4C30E5A25788DB700F859DA /* StudentDisciplineViewModel.swift in Sources */,
 				A4D966D5257883A30081D7D4 /* LoadingButton.swift in Sources */,
 				A428E4E824A6B45D00123AEC /* Localizable.swift in Sources */,
 				A444950A24AE99DD006FF70A /* SideMenuTableViewCell.swift in Sources */,
 				A4FB76C724F766A400C5F33F /* AddClassTableViewCell.swift in Sources */,
+				A4C30E5025788D8D00F859DA /* StudentDisciplineViewController.swift in Sources */,
 				A444950724AE99C3006FF70A /* HomeTableViewCell.swift in Sources */,
 				A4D3FB1124BFFD8A00A7F13D /* String+Util.swift in Sources */,
 				A4B660C2257634C0007094F6 /* UIViewController+Util.swift in Sources */,

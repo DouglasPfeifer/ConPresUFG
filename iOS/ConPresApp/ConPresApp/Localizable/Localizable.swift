@@ -12,7 +12,6 @@ enum Localizable {
     
     // MARK: Menu
     enum Menu {
-        static let registerAttendance = "Registrar sua presença"
         static let checkAttendance = "Consultar sua frequência"
         static let studentsAttendance = "Frequência dos discentes"
         static let sendToSIGAA = "Enviar para o SIGAA"
