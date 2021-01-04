@@ -11,49 +11,68 @@ import Foundation
 class HomeViewModel: BaseViewModel {
     
     // MARK: Properties
-    var studentClasses = StudentClassesMock().mockStudentClass
+    var mock: Mock!
     var headerTitleArray = [String?]()
     var numberOfSections: Int! = 0
-    var classesByHeader: [String: [Class]] = [String: [Class]]()
-    var selectedClass: Class? = nil
-    
+    var lessonsByHeader: [String: [Lesson]] = [String: [Lesson]]()
+    var lessons: [Lesson]? = nil
+    var selectedLesson: Lesson? = nil
+        
     // MARK: Initializer
-    override init() {
+    init(completion: @escaping (Bool) -> ()) {
         super.init()
+//        mock = Mock(userType: userType)
+//        lessons = mock.getLessons(userType: userType)
         
         setSections()
+
+        getUserLessons { (success) in
+            if success {
+                self.setSections()
+                completion(success)
+            }
+        }
     }
     
     // MARK: TableView functions
     private func setSections() {
-        sortStudentClasses()
+        guard let unwrappedLessons = lessons else {
+            return
+        }
+        
+        sortLessons()
 
         numberOfSections = 0
         headerTitleArray.removeAll()
-        classesByHeader.removeAll()
+        lessonsByHeader.removeAll()
         var latestDay: Int! = -1
         var latestMonth: Int! = -1
         var latestYear: Int! = -1
         var headerTitle: String! = ""
-        for classe in studentClasses {
-            if let day = classe.startDate?.get(.day),
-               let month = classe.startDate?.get(.month),
-               let year = classe.startDate?.get(.year) {
+        for lesson in unwrappedLessons {
+            if let day = lesson.startTime?.convertToDate().get(.day),
+               let month = lesson.startTime?.convertToDate().get(.month),
+               let year = lesson.startTime?.convertToDate().get(.year) {
                 if latestDay != day || latestMonth != month || latestYear != year {
                     latestDay = day
                     latestMonth = month
                     latestYear = year
-                    headerTitle = "\(classe.startDate?.dayOfWeek() ?? "Indefinido") - \(latestDay!)/\(latestMonth!)/\(latestYear!)"
+                    headerTitle = "\(lesson.startTime?.convertToDate().dayOfWeek() ?? "Indefinido") - \(latestDay!)/\(latestMonth!)/\(latestYear!)"
                     
-                    classesByHeader[headerTitle] = [Class]()
-                    classesByHeader[headerTitle]?.append(classe)
+                    lessonsByHeader[headerTitle] = [Lesson]()
+                    lessonsByHeader[headerTitle]?.append(lesson)
                     headerTitleArray.append(headerTitle)
                     numberOfSections += 1
                 } else {
-                    classesByHeader[headerTitle]?.append(classe)
+                    lessonsByHeader[headerTitle]?.append(lesson)
                 }
             }
         }
+    }
+    
+    func getNumberOfSections() -> Int {
+        guard let sections = numberOfSections else { return 0 }
+        return sections
     }
     
     func getHeaderTitleFor(section: Int!) -> String! {
@@ -61,30 +80,68 @@ class HomeViewModel: BaseViewModel {
         return headerTitle
     }
     
-    func getNumberRowsInSection(section: Int!) -> Int! {
-        guard let key = headerTitleArray[section] else { return 0 }
-        return classesByHeader[key]?.count
+    func getNumberRowsInSection(section: Int) -> Int {
+        guard let key = headerTitleArray[section],
+              let numberOfLesson = lessonsByHeader[key] else { return 0 }
+        return numberOfLesson.count
     }
     
     // MARK: Layout functions
-    func getClassTimeInterval(rowClass: Class) -> String {
-        guard let startTime = rowClass.startTime?.get(.hour, .minute) else { return "--:-- às --:--" }
-        guard let endTime = rowClass.endTime?.get(.hour, .minute) else { return "--:-- às --:--" }
+    func getLessonTimeInterval(rowLesson: Lesson) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "HH:mm"
         
-        let timeInterval = "\(startTime.hour!):\(startTime.minute!) às \(endTime.hour!):\(endTime.minute!)"
+        guard let startTime = rowLesson.startTime else { return "--:-- às --:--" }
+        let startTimeString = dateFormatter.string(from: startTime.convertToDate())
+        
+        guard let endTime = rowLesson.endTime else { return "\(startTimeString) às --:--" }
+        let endTimeString = dateFormatter.string(from: endTime.convertToDate())
+        
+        let timeInterval = "\(startTimeString) às \(endTimeString)"
+        
         return timeInterval
     }
     
     // MARK: Model functions
-    func sortStudentClasses() {
-        studentClasses = studentClasses.sorted(by: {
-            $0.startDate! > $1.startDate!
+    func sortLessons() {
+        guard let unwrappedLessons = lessons else { return }
+        lessons = unwrappedLessons.sorted(by: {
+            $0.startTime! > $1.startTime!
         })
     }
     
-    func setCurrentClass(section: Int, row: Int) {
+    func setSelectedLesson(section: Int, row: Int) {
         guard let key = getHeaderTitleFor(section: section),
-              let currentClass = classesByHeader[key]?[row] else { return }
-        selectedClass = currentClass
+              let selectedLesson = lessonsByHeader[key]?[row] else { return }
+        self.selectedLesson = selectedLesson
    }
+    
+    // MARK: HTTP Requests
+    func fetchLessons(completion: @escaping (Bool) -> ()) {
+        let id = 1
+        networkManager.getUserLessons(userID: id, completion: {
+            (lessons, error) in
+            if let error = error {
+                completion(false)
+                return
+            }
+            dump(lessons)
+            self.lessons = lessons
+            completion(true)
+        })
+    }
+    
+    func getUserLessons(completion: @escaping (Bool) -> ()) {
+        let id = 1
+        networkManager.getUserLessons(userID: id, completion: {
+            (lessons, error) in
+            if let error = error {
+                completion(false)
+                return
+            }
+            dump(lessons)
+            self.lessons = lessons
+            completion(true)
+        })
+    }
 }

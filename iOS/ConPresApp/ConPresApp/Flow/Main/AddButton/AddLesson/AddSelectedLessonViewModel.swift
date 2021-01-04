@@ -1,32 +1,30 @@
 //
-//  StudentClassViewModel.swift
+//  AddSelectedLessonViewModel.swift
 //  ConPresApp
 //
-//  Created by Douglas Tonetto Pfeifer on 01/07/20.
+//  Created by Douglas Tonetto Pfeifer on 27/08/20.
 //  Copyright © 2020 Douglas Tonetto Pfeifer. All rights reserved.
 //
 
+import Foundation
 import CoreLocation
 import MapKit
 import Moya
 
-class StudentClassViewModel: BaseViewModel, CLLocationManagerDelegate {
+class AddSelectedLessonViewModel: BaseViewModel, CLLocationManagerDelegate {
     
     // MARK: Properties
     let locationManager = CLLocationManager()
     private let defaultLocation = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: -16.60345745122536, longitude: -49.266678763718126),
-                                                     latitudinalMeters: 1000,
-                                                     longitudinalMeters: 1000)
+                                                     latitudinalMeters: 100,
+                                                     longitudinalMeters: 100)
     var currentLocation: CLLocation?
     var deviceID: String?
     var GPSPermissionGranted = false
     
-    var currentClass: Class!
-    
     // MARK: Initializer
-    init(currentClass: Class) {
+    override init() {
         super.init()
-        self.currentClass = currentClass
         setCurrentLocation()
         setDeviceID()
     }
@@ -67,7 +65,7 @@ class StudentClassViewModel: BaseViewModel, CLLocationManagerDelegate {
         currentLocation = locationManager.location
     }
     
-    func getCurrentRegion (regionRadius: CLLocationDistance = 1000) -> MKCoordinateRegion {
+    func getCurrentRegion (regionRadius: CLLocationDistance = 100) -> MKCoordinateRegion {
         setCurrentLocation()
         guard let currentLocation = currentLocation else {
             return defaultLocation
@@ -86,30 +84,5 @@ class StudentClassViewModel: BaseViewModel, CLLocationManagerDelegate {
     // MARK: UUID Methods
     func setDeviceID() {
         deviceID = getUUID()
-    }
-    
-    // MARK: HTTP Requests
-    func sendAttendance(completion: @escaping () -> ()) {
-        let provider = MoyaProvider<NetworkingService>()
-        provider.request(.createUser(firstName: "James", lastName: "Potter")) {
-            result in
-            completion()
-        }
-
-        // The full request will result to the following:
-        // POST https://api.myservice.com/users
-        // Request body:
-        // {
-        //   "first_name": "James",
-        //   "last_name": "Potter"
-        // }
-
-        provider.request(.updateUser(id: 123, firstName: "Harry", lastName: "Potter")) {
-            result in
-            completion()
-        }
-
-        // The full request will result to the following:
-        // POST https://api.myservice.com/users/123?first_name=Harry&last_name=Potter
     }
 }

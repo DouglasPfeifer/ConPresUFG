@@ -15,7 +15,8 @@ class BaseViewModel: NSObject {
     var userType: Int!
     
     // MARK: Properties
-    let provider = MoyaProvider<NetworkingService>()
+    var provider = MoyaProvider<NetworkingService>()
+    var networkManager = NetworkManager()
     
     // MARK: Initializer
     override init() {

@@ -19,11 +19,34 @@ extension Date {
     
     func dayOfWeek() -> String? {
         let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "pt_BR")
         dateFormatter.dateFormat = "EEEE"
-        return dateFormatter.string(from: self).capitalized
-        // or use capitalized(with: locale) if you want
+        return dateFormatter.string(from: self).capitalized(with: dateFormatter.locale)
     }
     
+    func getDayMonthYear() -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd/MM/yyyy"
+        let ddMMyyyy = formatter.string(from: self)
+        return ddMMyyyy
+    }
+    
+    func getHourMinutes() -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "HH:mm"
+        let HHmm = formatter.string(from: self)
+        return HHmm
+    }
+    
+    func dayMinusX(x: Int) -> Date {
+        let newDate = Calendar.current.date(byAdding: .day, value: x, to: noon)!
+        return newDate
+    }
+    
+    func hourMinusX(x: Int) -> Date {
+        let newDate = Calendar.current.date(byAdding: .hour, value: x, to: noon)!
+        return newDate
+    }
     
     // MARK: FOR MOCK
     static var yesterday: Date { return Date().dayBefore }

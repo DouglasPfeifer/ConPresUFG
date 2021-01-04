@@ -16,13 +16,24 @@ class HomeViewController: BaseViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var addButton: UIBarButtonItem!
     
+    let refreshControl = UIRefreshControl()
+    
     var viewModel: HomeViewModel!
-            
+    var couldntLoadLessons = false
+    
     // MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        viewModel = HomeViewModel()
+        viewModel = HomeViewModel {
+            (success) in
+            self.couldntLoadLessons = !success
+            if success {
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            }
+        }
         
         setupNavBar()
         setupSideMenu()
@@ -35,7 +46,7 @@ class HomeViewController: BaseViewController {
         switch viewModel.userType {
         case UserTypes.student.rawValue:
             addButton.isHidden = true
-        case UserTypes.teacher.rawValue:
+        case UserTypes.lecturer.rawValue:
             addButton.isHidden = false
         default:
             return
@@ -54,6 +65,8 @@ class HomeViewController: BaseViewController {
     private func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = self
+        refreshControl.addTarget(self, action: #selector(updateTableView), for: .valueChanged)
+        tableView.refreshControl = refreshControl
     }
     
     private func makeSettings() -> SideMenuSettings {
@@ -78,11 +91,47 @@ class HomeViewController: BaseViewController {
         return SideMenuPresentationStyle.menuSlideIn
     }
     
+    // MARK: Segue
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch segue.identifier {
+        case StoryboardIdentifier.showStudentLessonSegue.rawValue:
+            let studentLessonViewController = segue.destination as! StudentLessonViewController
+            if let selectedLesson = viewModel.selectedLesson {
+                studentLessonViewController.viewModel = StudentLessonViewModel(selectedLesson: selectedLesson)
+            }
+        case StoryboardIdentifier.showLecturerLessonSegue.rawValue:
+            let lecturerLessonViewController = segue.destination as! LecturerLessonViewController
+            if let selectedLesson = viewModel.selectedLesson {
+                lecturerLessonViewController.viewModel = LecturerLessonViewModel(selectedLesson: selectedLesson)
+            }
+        case StoryboardIdentifier.showAddLessonSegue.rawValue:
+            let addLessonViewController = segue.destination as! AddLessonViewController
+        default:
+            return
+        }
+        
+        guard let sideMenuNavigationController = segue.destination as? SideMenuNavigationController else { return }
+        sideMenuNavigationController.settings = makeSettings()
+    }
+    
     // MARK: Actions
+    @objc func updateTableView(refreshControl: UIRefreshControl) {
+        viewModel.getUserLessons {
+            (success) in
+            self.couldntLoadLessons = !success
+            if success {
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            }
+        }
+        refreshControl.endRefreshing()
+    }
+    
     @IBAction func addButtonAction(_ sender: Any) {
         switch viewModel.userType {
-        case UserTypes.teacher.rawValue:
-            self.performSegue(withIdentifier: StoryboardIdentifier.showAddClassSegue.rawValue, sender: nil)
+        case UserTypes.lecturer.rawValue:
+            self.performSegue(withIdentifier: StoryboardIdentifier.showAddLessonSegue.rawValue, sender: nil)
         default:
             return
         }
@@ -93,7 +142,15 @@ class HomeViewController: BaseViewController {
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return viewModel.numberOfSections
+        let numberOfSections = viewModel.getNumberOfSections()
+        if numberOfSections != 0 {
+            self.tableView.restore()
+        } else if couldntLoadLessons {
+            self.tableView.setEmptyMessage(message: "Não foi possível carregar a lista\n\nPuxe para baixo")
+        } else {
+            self.tableView.setAtivityIndicator()
+        }
+        return numberOfSections
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -101,7 +158,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let numberOfRows = viewModel.getNumberRowsInSection(section: section) else { return 0 }
+        let numberOfRows = viewModel.getNumberRowsInSection(section: section)
         return numberOfRows
     }
     
@@ -113,15 +170,37 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: StoryboardIdentifier.homeCell.rawValue, for: indexPath) as! HomeTableViewCell
 
         guard let header = viewModel.getHeaderTitleFor(section: indexPath.section) else { return cell }
-        guard let sectionClasses = viewModel.classesByHeader[header] else { return cell }
+        guard let sectionLessons = viewModel.lessonsByHeader[header] else { return cell }
         let row = indexPath.row
-        let rowClass = sectionClasses[row]
-        let schedule = viewModel.getClassTimeInterval(rowClass: rowClass)
+        let rowLesson = sectionLessons[row]
+        let schedule = viewModel.getLessonTimeInterval(rowLesson: rowLesson)
         
-        cell.courseLabel.text = rowClass.discipline
-        cell.lecturerLabel.text = rowClass.lecturer
-        cell.classroomLabel.text = rowClass.classroom
-        cell.scheduleLabel.text = schedule
+        // Start MOCK
+        cell.courseLabel.text = "Engenharia de Requisitos"
+        cell.lecturerLabel.text = "Juliano Lopes de Oliveira"
+        cell.classroomLabel.text = "Campus Samambaia - CAB 201"
+        cell.scheduleLabel.text = "08:00 às 9:40"
+        cell.lessonStatusImageView.image = UIImage(systemName: "person.fill.questionmark.rtl")!.withRenderingMode(.alwaysTemplate)
+        cell.lessonStatusImageView.tintColor = UIColor.systemBlue
+        // End MOCK
+        
+//        cell.courseLabel.text = rowLesson.discipline
+//        cell.lecturerLabel.text = rowLesson.lecturer
+//        cell.classroomLabel.text = String(describing: rowLesson.classroom!)
+//        cell.scheduleLabel.text = schedule
+//
+//        guard let cellLessonAttendance = rowLesson.attendance else {
+//            cell.lessonStatusImageView.image = UIImage(systemName: "person.fill.questionmark.rtl")!.withRenderingMode(.alwaysTemplate)
+//            cell.lessonStatusImageView.tintColor = UIColor.systemBlue
+//            return cell
+//        }
+//        if cellLessonAttendance == 1 {
+//            cell.lessonStatusImageView.image = UIImage(systemName: "person.fill.checkmark.rtl")!.withRenderingMode(.alwaysTemplate)
+//            cell.lessonStatusImageView.tintColor = UIColor.systemGreen
+//        } else {
+//            cell.lessonStatusImageView.image = UIImage(systemName: "person.fill.xmark.rtl")!.withRenderingMode(.alwaysTemplate)
+//            cell.lessonStatusImageView.tintColor = UIColor.systemRed
+//        }
         
         return cell
     }
@@ -129,28 +208,12 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        
         if viewModel.userType == UserTypes.student.rawValue {
-            viewModel.setCurrentClass(section: indexPath.section, row: indexPath.row)
-            self.performSegue(withIdentifier: StoryboardIdentifier.showStudentClassSegue.rawValue, sender: nil)
+            viewModel.setSelectedLesson(section: indexPath.section, row: indexPath.row)
+            self.performSegue(withIdentifier: StoryboardIdentifier.showStudentLessonSegue.rawValue, sender: nil)
+        } else if viewModel.userType == UserTypes.lecturer.rawValue {
+            viewModel.setSelectedLesson(section: indexPath.section, row: indexPath.row)
+            self.performSegue(withIdentifier: StoryboardIdentifier.showLecturerLessonSegue.rawValue, sender: nil)
         }
-    }
-    
-    // MARK: Segue
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        switch segue.identifier {
-        case StoryboardIdentifier.showStudentClassSegue.rawValue:
-            let studentClassViewController = segue.destination as! StudentClassViewController
-            if let currentClass = viewModel.selectedClass {
-                studentClassViewController.viewModel = StudentClassViewModel(currentClass: currentClass)
-            }
-        case StoryboardIdentifier.showAddClassSegue.rawValue:
-            let addClassroomViewController = segue.destination as! AddClassViewController
-        default:
-            return
-        }
-        
-        guard let sideMenuNavigationController = segue.destination as? SideMenuNavigationController else { return }
-        sideMenuNavigationController.settings = makeSettings()
     }
 }

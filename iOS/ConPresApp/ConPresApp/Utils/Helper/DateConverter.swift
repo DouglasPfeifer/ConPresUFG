@@ -36,15 +36,4 @@ class DateUtil {
         
         return weekDayString
     }
-    
-    static func getDayMonthYear(day: Int) -> String {
-        let date = Date()
-        let formatter = DateFormatter()
-        let calendar = Calendar.current
-        
-        formatter.dateFormat = "dd/MM/yyyy"
-        let ddMMyyyy = formatter.string(from: calendar.date(byAdding: .day, value: day, to: date)!)
-        
-        return ddMMyyyy
-    }
 }

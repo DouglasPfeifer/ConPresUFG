@@ -17,8 +17,7 @@ class SideMenuTableViewController: UITableViewController {
     var baseController: UINavigationController!
     
     var studentDisciplineVC = StudentDisciplineViewController()
-//    var studentsAttendanceVC = StudentsAttendanceViewController()
-//    var sendToSIGAAVC = SendToSIGAAViewController()
+    var lecturerDisciplineVC = LecturerDisciplineViewController()
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .darkContent
@@ -52,10 +51,10 @@ class SideMenuTableViewController: UITableViewController {
             fromStoryboardNamed: StoryboardName.studentCheckAttendance.rawValue,
             usingControllerIdentifier: StoryboardIdentifier.studentDisciplineViewController.rawValue
         )
-//        sendToSIGAAVC = UIStoryboard.instantiateController(
-//            fromStoryboardNamed: StoryboardName.sendToSIGAA.rawValue,
-//            usingControllerIdentifier: StoryboardIdentifier.sendToSIGAAViewController.rawValue
-//        )
+        lecturerDisciplineVC = UIStoryboard.instantiateController(
+            fromStoryboardNamed: StoryboardName.lecturerCheckAttendance.rawValue,
+            usingControllerIdentifier: StoryboardIdentifier.lecturerDisciplineViewController.rawValue
+        )
     }
     
     // MARK: TableViewDelegate
@@ -64,8 +63,8 @@ class SideMenuTableViewController: UITableViewController {
         switch viewModel.userType {
         case UserTypes.student.rawValue:
             return NumMenuOptions.student
-        case UserTypes.teacher.rawValue:
-            return NumMenuOptions.teacher
+        case UserTypes.lecturer.rawValue:
+            return NumMenuOptions.lecturer
         default:
             return 0
         }
@@ -84,12 +83,10 @@ class SideMenuTableViewController: UITableViewController {
             if row == 0 {
                 cell.titleLabel?.text = Localizable.Menu.checkAttendance
             }
-        case UserTypes.teacher.rawValue:
+        case UserTypes.lecturer.rawValue:
             if row == 0 {
                 cell.titleLabel?.text = Localizable.Menu.checkAttendance
             } else if row == 1 {
-                cell.titleLabel?.text = Localizable.Menu.studentsAttendance
-            } else if row == 2 {
                 cell.titleLabel?.text = Localizable.Menu.sendToSIGAA
             }
         default:
@@ -103,7 +100,6 @@ class SideMenuTableViewController: UITableViewController {
         
         tableView.deselectRow(at: indexPath, animated: true)
         
-        
         switch viewModel.userType {
         case UserTypes.student.rawValue:
             switch row {
@@ -112,17 +108,10 @@ class SideMenuTableViewController: UITableViewController {
             default:
                 break
             }
-        case UserTypes.teacher.rawValue:
+        case UserTypes.lecturer.rawValue:
             switch row {
             case 0:
-                break
-//                self.navigationController?.pushViewController(checkAttendanceVC, animated: true)
-            case 1:
-                break
-//                self.navigationController?.pushViewController(studentsAttendanceVC, animated: true)
-            case 2:
-                break
-//                self.navigationController?.pushViewController(sendToSIGAAVC, animated: true)
+                self.navigationController?.pushViewController(lecturerDisciplineVC, animated: true)
             default:
                 break
             }

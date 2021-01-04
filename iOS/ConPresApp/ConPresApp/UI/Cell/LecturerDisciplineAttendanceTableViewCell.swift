@@ -1,25 +1,18 @@
 //
-//  HomeTableViewCell.swift
+//  LecturerDisciplineAttendanceTableViewCell.swift
 //  ConPresApp
 //
-//  Created by Douglas Tonetto Pfeifer on 02/07/20.
+//  Created by Douglas Tonetto Pfeifer on 20/12/20.
 //  Copyright © 2020 Douglas Tonetto Pfeifer. All rights reserved.
 //
 
 import UIKit
 
-class HomeTableViewCell: UITableViewCell {
+class LecturerDisciplineAttendanceTableViewCell: UITableViewCell {
 
-    /// Disciplina
-    @IBOutlet weak var courseLabel: UILabel!
-    /// Docente
-    @IBOutlet weak var lecturerLabel: UILabel!
-    /// Local
+    @IBOutlet weak var lessonNameLabel: UILabel!
     @IBOutlet weak var classroomLabel: UILabel!
-    /// Horário
     @IBOutlet weak var scheduleLabel: UILabel!
-    
-    @IBOutlet weak var lessonStatusImageView: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
