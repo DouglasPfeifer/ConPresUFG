@@ -12,6 +12,7 @@ class StudentDisciplineAttendanceViewModel: BaseViewModel {
     
     // MARK: Properties
     var mock: Mock!
+    var lessons: [Lesson]?
 
     var currentDiscipline: String!
     var disciplineLessons: [Lesson]!
@@ -21,13 +22,20 @@ class StudentDisciplineAttendanceViewModel: BaseViewModel {
     var numberOfAttendances: Int!
     var numberOfAbsences: Int!
     var maxAbsences: Float!
-    let attendancePerLesson = 2
+    let attendancePerLesson = 1
     let totalNumberOfLessons = 64
     
     // MARK: Initializer
     init(currentDiscipline: String) {
         super.init()
-        mock = Mock(userType: userType)
+//        mock = Mock(userType: userType)
+        if let lessonsArray = UserDefaults.standard.data(forKey: "studentLessonsArray") {
+            do {
+                lessons = try JSONDecoder().decode([Lesson].self, from: lessonsArray)
+            } catch {
+                print("asd erro")
+            }
+        }
         
         self.currentDiscipline = currentDiscipline
         setDisciplineLessons()
@@ -42,7 +50,7 @@ class StudentDisciplineAttendanceViewModel: BaseViewModel {
         numberOfAbsences = 0
         maxAbsences = 0.0
         
-        for lesson in mock.lessons {
+        for lesson in lessons! {
             if lesson.discipline == currentDiscipline {
                 disciplineLessons.append(lesson)
                 numberOfLessons += attendancePerLesson

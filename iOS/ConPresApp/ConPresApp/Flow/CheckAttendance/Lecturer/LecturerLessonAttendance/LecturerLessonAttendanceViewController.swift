@@ -34,12 +34,12 @@ class LecturerLessonAttendanceViewController: BaseViewController {
     // MARK: Internal methods
     private func setupLabels() {
         // Start MOCK
-        lessonNameLabel.text = "Segunda-Feira - 21/12/2020"
+//        lessonNameLabel.text = "Segunda-Feira - 21/12/2020"
         // End MOCK
         
-//        lessonNameLabel.text = "\(viewModel.currentLesson.startTime!.convertToDate().getDayMonthYear())"
-//        totalNumberOfStudentsLabel.text = "\(viewModel.currentLesson.lecturerStudents!.count)"
-//        attendedNumberOfStudentsLabel.text = "\(viewModel.getNumberOfAttendants())"
+        lessonNameLabel.text = "\(viewModel.currentLesson.startTime!.convertToDate().getDayMonthYear())"
+        totalNumberOfStudentsLabel.text = "\(viewModel.currentLesson.lecturerStudents!.count)"
+        attendedNumberOfStudentsLabel.text = "\(viewModel.getNumberOfAttendants())"
     }
     
     private func setupTableView() {
@@ -86,28 +86,28 @@ extension LecturerLessonAttendanceViewController: UITableViewDelegate, UITableVi
         cell.row = indexPath.row
         
         // Start MOCK
-        if indexPath.row == 0 {
-            cell.studentNameLabel.text = "Carlos Alberto do Campo"
-        } else if indexPath.row == 1 {
-            cell.studentNameLabel.text = "Coralina Carvalho de Arantes"
-        } else if indexPath.row == 2 {
-            cell.studentNameLabel.text = "João da Silva Morais"
-        } else if indexPath.row == 3 {
-            cell.studentNameLabel.text = "Josimar Pedro Guimarães"
-        } else if indexPath.row == 4 {
-            cell.studentNameLabel.text = "Lucio Borges Neto"
-        } else if indexPath.row == 5 {
-            cell.studentNameLabel.text = "Maria das Lurdes Neto"
-        } else if indexPath.row == 6 {
-            cell.studentNameLabel.text = "Murilo Pereira"
-        } else if indexPath.row == 7 {
-            cell.studentNameLabel.text = "Pedro Augusto das Neves"
-        }
+//        if indexPath.row == 0 {
+//            cell.studentNameLabel.text = "Carlos Alberto do Campo"
+//        } else if indexPath.row == 1 {
+//            cell.studentNameLabel.text = "Coralina Carvalho de Arantes"
+//        } else if indexPath.row == 2 {
+//            cell.studentNameLabel.text = "João da Silva Morais"
+//        } else if indexPath.row == 3 {
+//            cell.studentNameLabel.text = "Josimar Pedro Guimarães"
+//        } else if indexPath.row == 4 {
+//            cell.studentNameLabel.text = "Lucio Borges Neto"
+//        } else if indexPath.row == 5 {
+//            cell.studentNameLabel.text = "Maria das Lurdes Neto"
+//        } else if indexPath.row == 6 {
+//            cell.studentNameLabel.text = "Murilo Pereira"
+//        } else if indexPath.row == 7 {
+//            cell.studentNameLabel.text = "Pedro Augusto das Neves"
+//        }
         // End Mock
         
         let cellStudent = viewModel.getRowStudent(row: indexPath.row)
         
-//        cell.studentNameLabel.text = cellStudent.name
+        cell.studentNameLabel.text = cellStudent.name
         cell.attendanceSwitch.isOn = cellStudent.attendance!
         guard let cellStudentAttendance = cellStudent.attendance else {
             cell.studentAttendanceStatusImageView.image = UIImage(systemName: "person.fill.questionmark.rtl")!.withRenderingMode(.alwaysTemplate)

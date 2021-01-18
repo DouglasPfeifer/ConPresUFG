@@ -17,6 +17,8 @@ class AddSelectedLessonViewController: BaseViewController, CLLocationManagerDele
     @IBOutlet weak var startTimeLabel: UILabel!
     @IBOutlet weak var endTimeLabel: UILabel!
     @IBOutlet weak var startLessonButton: UIButton!
+    @IBOutlet weak var enableGPSButton: UIButton!
+    @IBOutlet weak var endLessonButton: UIButton!
     @IBOutlet weak var lessonPasswordLabel: UILabel!
     @IBOutlet weak var mapView: MKMapView!
     
@@ -52,18 +54,24 @@ class AddSelectedLessonViewController: BaseViewController, CLLocationManagerDele
     // MARK: Internal methods
     private func setupLayout() {
         // Start MOCK
-        lessonDateLabel.text = "Quinta-Feira - 24/12/2020"
-        startTimeLabel.text = "08:00"
-        endTimeLabel.text = "09:40"
-        lessonPasswordLabel.text = "frN5a!pt-Ce0"
-
+//        lessonDateLabel.text = "Quinta-Feira - 24/12/2020"
+//        startTimeLabel.text = "08:00"
+//        endTimeLabel.text = "09:40"
+//        lessonPasswordLabel.text = "frN5a!pt-Ce0"
         // End MOCK
         
         disciplineTitleLabel.text = activeLesson?.discipline ?? "---"
-//        lessonDateLabel.text = activeLesson?.startTime?.convertToDate().getDayMonthYear() ?? "--/--/----"
-//        startTimeLabel.text = activeLesson?.startTime?.convertToDate().getHourMinutes() ?? "--:--"
-//        endTimeLabel.text = activeLesson?.endTime?.convertToDate().getHourMinutes() ?? "--:--"
-//        lessonPasswordLabel.text = activeLesson?.password ?? "Inicie a aula para gerar uma senha"
+        lessonDateLabel.text = activeLesson?.startTime?.convertToDate().getDayMonthYear() ?? "--/--/----"
+        startTimeLabel.text = activeLesson?.startTime?.convertToDate().getHourMinutes() ?? "--:--"
+        endTimeLabel.text = activeLesson?.endTime?.convertToDate().getHourMinutes() ?? "--:--"
+        lessonPasswordLabel.text = activeLesson?.password ?? "Inicie a aula para gerar uma senha"
+        
+        enableGPSButton.isEnabled = !viewModel.GPSPermissionGranted
+        enableGPSButton.tintColor = viewModel.GPSPermissionGranted ? UIColor.systemGray : UIColor.blue
+        startLessonButton.isEnabled = true
+        startLessonButton.backgroundColor = UIColor.systemGreen
+        endLessonButton.isEnabled = false
+        endLessonButton.backgroundColor = UIColor.systemRed
     }
     
     private func setupMapView() {
@@ -78,8 +86,21 @@ class AddSelectedLessonViewController: BaseViewController, CLLocationManagerDele
     
     // MARK: Actions
     @IBAction func startLessonAction(_ sender: Any) {
-//        activeLesson?.latitude = viewModel.getLocation()[0]
-//        activeLesson?.longitude = viewModel.getLocation()[1]
-//        viewModel.getDeviceID()
+        let location = viewModel.getCurrentRegion()
+        activeLesson?.latitude = location.center.latitude
+        activeLesson?.longitude = location.center.longitude
+        viewModel.setDeviceID()
+        startLessonButton.isEnabled = false
+        startLessonButton.backgroundColor = UIColor.systemGray
+        endLessonButton.isEnabled = true
+        endLessonButton.backgroundColor = UIColor.systemRed
+        
+        viewModel.startLesson(newLesson: activeLesson!)
+    }
+    
+    @IBAction func endLessonAction(_ sender: Any) {
+        endLessonButton.isEnabled = false
+        endLessonButton.backgroundColor = UIColor.systemGray
+        viewModel.endLesson(lesson: activeLesson!)
     }
 }

@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct LecturerStudent {
+struct LecturerStudent: Codable {
     var id: String?
     var name: String?
     var attendance: Bool?
@@ -19,5 +19,11 @@ struct LecturerStudent {
         self.id = id
         self.name = name
         self.attendance = attendance
+    }
+    
+    enum CodingKeys: String, CodingKey {
+        case id = "id",
+             name = "name",
+             attendance = "attendance"
     }
 }

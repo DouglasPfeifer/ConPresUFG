@@ -14,11 +14,19 @@ class StudentDisciplineViewModel: BaseViewModel {
     var mock: Mock!
     var studentDisciplines: [String?]?
     var selectedDiscipline: String?
+    var lessons: [Lesson]?
     
     // MARK: Initializer
     override init() {
         super.init()
-        mock = Mock(userType: userType)
+//        mock = Mock(userType: userType)
+        if let lessonsArray = UserDefaults.standard.data(forKey: "studentLessonsArray") {
+            do {
+                lessons = try JSONDecoder().decode([Lesson].self, from: lessonsArray)
+            } catch {
+                print("asd erro")
+            }
+        }
         
         setDisciplines()
     }
@@ -27,7 +35,7 @@ class StudentDisciplineViewModel: BaseViewModel {
     private func setDisciplines() {
         studentDisciplines = [String]()
         
-        for studentLesson in mock.lessons {
+        for studentLesson in lessons! {
             guard let discipline = studentLesson.discipline else { continue }
             if !studentDisciplines!.contains(discipline) {
                 studentDisciplines!.append(discipline)

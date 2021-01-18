@@ -21,6 +21,7 @@ class LecturerLessonViewController: BaseViewController, CLLocationManagerDelegat
     @IBOutlet weak var attendedStudentsLabel: UILabel!
     @IBOutlet weak var absentStudentsLabel: UILabel!
     @IBOutlet weak var verifyAttendanceButton: UIButton!
+    @IBOutlet weak var endLessonButton: UIButton!
     @IBOutlet weak var mapView: MKMapView!
     
     private var observer: NSObjectProtocol?
@@ -53,24 +54,24 @@ class LecturerLessonViewController: BaseViewController, CLLocationManagerDelegat
     // MARK: Internal methods
     private func setupLabels() {
         // Start MOCK
-        disciplineNameLabel.text = "Engenharia de Requisitos"
+//        disciplineNameLabel.text = "Engenharia de Requisitos"
 //        dateLabel.text = viewModel.currentLesson.startTime?.convertToDate().getDayMonthYear()
 //        classroomLabel.text = String(describing: viewModel.currentLesson.classroom!)
 //        startTimeLabel.text = viewModel.currentLesson.startTime?.convertToDate().getHourMinutes()
 //        endTimeLabel.text = viewModel.currentLesson.endTime?.convertToDate().getHourMinutes()
 //        passwordLabel.text = viewModel.currentLesson.password
-        attendedStudentsLabel.text = "25"
-        absentStudentsLabel.text = "15"
+//        attendedStudentsLabel.text = "25"
+//        absentStudentsLabel.text = "15"
         // End MOCK
         
-//        disciplineNameLabel.text = viewModel.currentLesson.discipline
-//        dateLabel.text = viewModel.currentLesson.startTime?.convertToDate().getDayMonthYear()
-//        classroomLabel.text = String(describing: viewModel.currentLesson.classroom!)
-//        startTimeLabel.text = viewModel.currentLesson.startTime?.convertToDate().getHourMinutes()
-//        endTimeLabel.text = viewModel.currentLesson.endTime?.convertToDate().getHourMinutes()
-//        passwordLabel.text = viewModel.currentLesson.password
-//        attendedStudentsLabel.text = "\(viewModel.getNumberOfAttendants())"
-//        absentStudentsLabel.text = "\(viewModel.getNumberOfAbsences())"
+        disciplineNameLabel.text = viewModel.currentLesson.discipline
+        dateLabel.text = viewModel.currentLesson.startTime?.convertToDate().getDayMonthYear()
+        classroomLabel.text = String(describing: viewModel.currentLesson.classroom!)
+        startTimeLabel.text = viewModel.currentLesson.startTime?.convertToDate().getHourMinutes()
+        endTimeLabel.text = viewModel.currentLesson.endTime?.convertToDate().getHourMinutes()
+        passwordLabel.text = viewModel.currentLesson.password
+        attendedStudentsLabel.text = "\(viewModel.getNumberOfAttendants())"
+        absentStudentsLabel.text = "\(viewModel.getNumberOfAbsences())"
     }
     
     private func setupMapView() {
@@ -81,5 +82,11 @@ class LecturerLessonViewController: BaseViewController, CLLocationManagerDelegat
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
         mapView.camera.centerCoordinate = CLLocationCoordinate2D(latitude: locValue.latitude, longitude: locValue.longitude)
+    }
+    
+    @IBAction func endLesson(_ sender: Any) {
+        endLessonButton.isEnabled = false
+        endLessonButton.backgroundColor = UIColor.systemGray
+        viewModel.endLesson()
     }
 }

@@ -145,8 +145,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="addButton" destination="4fs-oy-liW" id="AcS-Ow-z9n"/>
+                        <outlet property="addButton" destination="4fs-oy-liW" id="jgl-vg-TAb"/>
                         <outlet property="menuButton" destination="7qV-hz-i5t" id="I1j-y1-FDp"/>
+                        <outlet property="newAddButton" destination="4fs-oy-liW" id="gC3-Jc-vJ9"/>
                         <outlet property="tableView" destination="xYb-af-gwM" id="9Ym-A1-iZc"/>
                         <segue destination="quT-oO-qsG" kind="show" identifier="showStudentLessonSegue" id="lK5-DR-Ovj"/>
                         <segue destination="l2q-vW-PCx" kind="show" identifier="showAddLessonSegue" id="Onl-og-rKS"/>
@@ -331,6 +332,9 @@
                                 <state key="normal" title="FINALIZAR">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="endLessonAction:" destination="a1v-Km-xvv" eventType="touchUpInside" id="iX7-Wg-Xij"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qg9-el-0KP">
                                 <rect key="frame" x="97.5" y="200.5" width="180" height="40"/>
@@ -385,6 +389,8 @@
                     <navigationItem key="navigationItem" id="1Xc-bC-2gG"/>
                     <connections>
                         <outlet property="disciplineTitleLabel" destination="QW6-P4-xQT" id="iOR-bH-Dbm"/>
+                        <outlet property="enableGPSButton" destination="qg9-el-0KP" id="MJk-6E-kYe"/>
+                        <outlet property="endLessonButton" destination="cyO-e8-MtX" id="FA2-rn-s74"/>
                         <outlet property="endTimeLabel" destination="j9X-uD-KtE" id="FnV-Aq-e1S"/>
                         <outlet property="lessonDateLabel" destination="wM3-zv-VyI" id="QsG-Rb-o0b"/>
                         <outlet property="lessonPasswordLabel" destination="r69-Q1-5Fa" id="9v4-Q4-huo"/>

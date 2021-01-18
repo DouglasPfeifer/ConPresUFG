@@ -22,11 +22,19 @@ class LecturerLessonViewModel: BaseViewModel, CLLocationManagerDelegate {
     var GPSPermissionGranted = false
     
     var currentLesson: Lesson!
+    var lessons: [Lesson]?
     
     // MARK: Initializer
     init(selectedLesson: Lesson) {
         super.init()
         self.currentLesson = selectedLesson
+        if let lessonsArray = UserDefaults.standard.data(forKey: "lecturerLessonsArray") {
+            do {
+                lessons = try JSONDecoder().decode([Lesson].self, from: lessonsArray)
+            } catch {
+                print("asd erro")
+            }
+        }
         setCurrentLocation()
     }
     
@@ -98,8 +106,20 @@ class LecturerLessonViewModel: BaseViewModel, CLLocationManagerDelegate {
         return currentCoordinateRegion
     }
     
-//    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-//        guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
-//        print("locations = \(locValue.latitude) \(locValue.longitude)")
-//    }
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
+        print("locations = \(locValue.latitude) \(locValue.longitude)")
+    }
+    
+    func endLesson() {
+        currentLesson.attendance = 1
+        let index = lessons?.firstIndex(where: {$0.id == currentLesson.id})
+        lessons![index!] = currentLesson
+        do {
+            let lessonsArray = try JSONEncoder().encode(lessons)
+            UserDefaults.standard.set(lessonsArray, forKey: "lecturerLessonsArray")
+        } catch {
+            print("asd erro")
+        }
+    }
 }

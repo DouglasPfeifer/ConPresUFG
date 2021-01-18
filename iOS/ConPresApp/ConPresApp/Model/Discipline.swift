@@ -21,6 +21,8 @@ struct Discipline: Decodable {
     var latitude: Double?
     var longitude: Double?
     
+    var lecturerStudents: [LecturerStudent]?
+    
     init(code: Int,
          schedule: String,
          name: String,
@@ -29,7 +31,8 @@ struct Discipline: Decodable {
          endTime: String,
          password: String?,
          latitude: Double?,
-         longitude: Double?) {
+         longitude: Double?,
+         lecturerStudents: [LecturerStudent]?) {
         self.code = code
         self.schedule = schedule
         self.classroom = classroom
@@ -39,6 +42,7 @@ struct Discipline: Decodable {
         self.password = password
         self.latitude = latitude
         self.longitude = longitude
+        self.lecturerStudents = lecturerStudents
     }
     
     enum CodingKeys: String, CodingKey {

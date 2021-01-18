@@ -8,14 +8,14 @@
 
 import Foundation
 
-struct Lesson: Decodable {
+struct Lesson: Codable {
     var id: Int?
     var attendance: Int?
     
     var discipline: String?
     var disciplineID: Int?
     var lecturer: String?
-    var classroom: Int?
+    var classroom: String?
     var classroomID: Int?
     var campus: String?
     var building: String?
@@ -32,7 +32,7 @@ struct Lesson: Decodable {
          attendance: Int?,
          discipline: String?,
          lecturer: String?,
-         classroom: Int?,
+         classroom: String?,
          startTime: String?,
          endTime: String?,
          password: String?,
@@ -67,6 +67,10 @@ struct Lesson: Decodable {
             discipline = "disciplina",
             lecturer = "professor",
             startTime = "inicio",
-            endTime = "fim"
+            endTime = "fim",
+            password = "password",
+            latitude = "latitude",
+            longitude = "longitude",
+            lecturerStudents = "lecturerStudents"
     }
 }

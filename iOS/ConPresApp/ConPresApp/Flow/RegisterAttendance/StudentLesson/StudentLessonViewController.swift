@@ -71,16 +71,16 @@ class StudentLessonViewController: BaseViewController {
     
     private func setupLessonViews() {
         // Start MOCK
-        disciplineLabel.text = "Engenharia de Requisitos"
-        lecturerLabel.text = "Juliano Lopes de Oliveira"
-        classroomLabel.text = "Campus Samambaia - CAB 201"
-        scheduleLabel.text = "08:00 às 9:40"
+//        disciplineLabel.text = "Engenharia de Requisitos"
+//        lecturerLabel.text = "Juliano Lopes de Oliveira"
+//        classroomLabel.text = "Campus Samambaia - CAB 201"
+//        scheduleLabel.text = "08:00 às 9:40"
         // End MOCK
         
-//        disciplineLabel.text = viewModel.currentLesson.discipline
-//        lecturerLabel.text = viewModel.currentLesson.lecturer
-//        classroomLabel.text = String(describing: viewModel.currentLesson.classroom!)
-//        scheduleLabel.text = viewModel.getLessonTimeInterval()
+        disciplineLabel.text = viewModel.currentLesson.discipline
+        lecturerLabel.text = viewModel.currentLesson.lecturer
+        classroomLabel.text = String(describing: viewModel.currentLesson.classroom!)
+        scheduleLabel.text = viewModel.getLessonTimeInterval()
     }
     
     private func setupAttendanceViews() {
@@ -186,17 +186,23 @@ class StudentLessonViewController: BaseViewController {
             return
         }
         if viewModel.validLessonPassword(lessonPassword: insertedPassword) {
-            viewModel.getUserLesson {
-                success in
-                self.registerAttendanceButton.hideLoading()
-                if success {
-                    attendanceSentAlertController.addAction(okAction)
-                    self.present(attendanceSentAlertController, animated: true, completion: nil)
-                } else {
-                    attendanceNotSentAlertController.addAction(okAction)
-                    self.present(attendanceNotSentAlertController, animated: true, completion: nil)
-                }
-            }
+            
+            registerAttendanceButton.hideLoading()
+            attendanceSentAlertController.addAction(okAction)
+            present(attendanceSentAlertController, animated: true, completion: nil)
+            viewModel.registerAttendance()
+            
+//            viewModel.getUserLesson {
+//                success in
+//                self.registerAttendanceButton.hideLoading()
+//                if success {
+//                    attendanceSentAlertController.addAction(okAction)
+//                    self.present(attendanceSentAlertController, animated: true, completion: nil)
+//                } else {
+//                    attendanceNotSentAlertController.addAction(okAction)
+//                    self.present(attendanceNotSentAlertController, animated: true, completion: nil)
+//                }
+//            }
         } else {
             invalidPasswrodAlertController.addAction(okAction)
             present(invalidPasswrodAlertController, animated: true, completion: {

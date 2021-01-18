@@ -15,6 +15,7 @@ class HomeViewController: BaseViewController {
     @IBOutlet weak var menuButton: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var addButton: UIBarButtonItem!
+    @IBOutlet weak var newAddButton: UIBarButtonItem!
     
     let refreshControl = UIRefreshControl()
     
@@ -39,10 +40,25 @@ class HomeViewController: BaseViewController {
         setupSideMenu()
         updateMenu()
         setupTableView()
+        
+        self.tableView.reloadData()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        viewModel = HomeViewModel {
+            (success) in
+            self.couldntLoadLessons = !success
+            if success {
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            }
+        }
     }
     
     // MARK: Internal methods
     private func setupNavBar() {
+        addButton.isHidden = false
         switch viewModel.userType {
         case UserTypes.student.rawValue:
             addButton.isHidden = true
@@ -151,15 +167,21 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             self.tableView.setAtivityIndicator()
         }
         return numberOfSections
+        
+//        return 1
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return viewModel.getHeaderTitleFor(section: section)
+        
+//        return "Segunda-Feira - 21/12/2020"
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let numberOfRows = viewModel.getNumberRowsInSection(section: section)
         return numberOfRows
+        
+//        return 1
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -176,31 +198,36 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         let schedule = viewModel.getLessonTimeInterval(rowLesson: rowLesson)
         
         // Start MOCK
-        cell.courseLabel.text = "Engenharia de Requisitos"
-        cell.lecturerLabel.text = "Juliano Lopes de Oliveira"
-        cell.classroomLabel.text = "Campus Samambaia - CAB 201"
-        cell.scheduleLabel.text = "08:00 às 9:40"
-        cell.lessonStatusImageView.image = UIImage(systemName: "person.fill.questionmark.rtl")!.withRenderingMode(.alwaysTemplate)
-        cell.lessonStatusImageView.tintColor = UIColor.systemBlue
+//        cell.courseLabel.text = "Engenharia de Requisitos"
+//        cell.lecturerLabel.text = "Juliano Lopes de Oliveira"
+//        cell.classroomLabel.text = "Campus Samambaia - CAB 201"
+//        cell.scheduleLabel.text = "08:00 às 9:40"
+//        cell.lessonStatusImageView.image = UIImage(systemName: "person.fill.questionmark.rtl")!.withRenderingMode(.alwaysTemplate)
+//        cell.lessonStatusImageView.tintColor = UIColor.systemBlue
         // End MOCK
         
-//        cell.courseLabel.text = rowLesson.discipline
-//        cell.lecturerLabel.text = rowLesson.lecturer
-//        cell.classroomLabel.text = String(describing: rowLesson.classroom!)
-//        cell.scheduleLabel.text = schedule
-//
-//        guard let cellLessonAttendance = rowLesson.attendance else {
-//            cell.lessonStatusImageView.image = UIImage(systemName: "person.fill.questionmark.rtl")!.withRenderingMode(.alwaysTemplate)
-//            cell.lessonStatusImageView.tintColor = UIColor.systemBlue
-//            return cell
-//        }
-//        if cellLessonAttendance == 1 {
-//            cell.lessonStatusImageView.image = UIImage(systemName: "person.fill.checkmark.rtl")!.withRenderingMode(.alwaysTemplate)
-//            cell.lessonStatusImageView.tintColor = UIColor.systemGreen
-//        } else {
-//            cell.lessonStatusImageView.image = UIImage(systemName: "person.fill.xmark.rtl")!.withRenderingMode(.alwaysTemplate)
-//            cell.lessonStatusImageView.tintColor = UIColor.systemRed
-//        }
+        cell.courseLabel.text = rowLesson.discipline
+        cell.lecturerLabel.text = rowLesson.lecturer
+        cell.classroomLabel.text = String(describing: rowLesson.classroom!)
+        cell.scheduleLabel.text = schedule
+
+        guard let cellLessonAttendance = rowLesson.attendance else {
+            cell.lessonStatusImageView.image = UIImage(systemName: "person.fill.questionmark.rtl")!.withRenderingMode(.alwaysTemplate)
+            cell.lessonStatusImageView.tintColor = UIColor.systemBlue
+            return cell
+        }
+        if cellLessonAttendance == 1 {
+            cell.lessonStatusImageView.image = UIImage(systemName: "person.fill.checkmark.rtl")!.withRenderingMode(.alwaysTemplate)
+            cell.lessonStatusImageView.tintColor = UIColor.systemGreen
+            cell.isUserInteractionEnabled = false
+        } else if cellLessonAttendance == 2 {
+            cell.lessonStatusImageView.image = UIImage(systemName: "person.fill.questionmark.rtl")!.withRenderingMode(.alwaysTemplate)
+            cell.lessonStatusImageView.tintColor = UIColor.systemBlue
+        } else {
+            cell.lessonStatusImageView.image = UIImage(systemName: "person.fill.xmark.rtl")!.withRenderingMode(.alwaysTemplate)
+            cell.lessonStatusImageView.tintColor = UIColor.systemRed
+            cell.isUserInteractionEnabled = false
+        }
         
         return cell
     }

@@ -22,10 +22,20 @@ class StudentLessonViewModel: BaseViewModel, CLLocationManagerDelegate {
     var GPSPermissionGranted = false
     
     var currentLesson: Lesson!
+    
+    var lessons: [Lesson]?
         
     // MARK: Initializer
     init(selectedLesson: Lesson) {
         super.init()
+        
+        if let lessonsArray = UserDefaults.standard.data(forKey: "studentLessonsArray") {
+            do {
+                lessons = try JSONDecoder().decode([Lesson].self, from: lessonsArray)
+            } catch {
+                print("erro")
+            }
+        }
                 
         self.currentLesson = selectedLesson
         setCurrentLocation()
@@ -98,10 +108,10 @@ class StudentLessonViewModel: BaseViewModel, CLLocationManagerDelegate {
         return currentCoordinateRegion
     }
     
-//    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-//        guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
-//        print("locations = \(locValue.latitude) \(locValue.longitude)")
-//    }
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
+        print("locations = \(locValue.latitude) \(locValue.longitude)")
+    }
     
     // MARK: UUID Methods
     func setDeviceID() {
@@ -123,5 +133,22 @@ class StudentLessonViewModel: BaseViewModel, CLLocationManagerDelegate {
             self.currentLesson.attendance = lesson?.attendance
             completion(true)
         })
+    }
+    
+    func registerAttendance() {
+        var i = 0
+        for lesson in lessons! {
+            if lesson.id == currentLesson.id {
+                currentLesson.attendance = 1
+                lessons![i] = currentLesson
+            }
+            i += 1
+        }
+        do {
+            let lessonsArray = try JSONEncoder().encode(lessons)
+            UserDefaults.standard.set(lessonsArray, forKey: "studentLessonsArray")
+        } catch {
+            print("asd erro")
+        }
     }
 }

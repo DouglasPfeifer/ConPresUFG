@@ -22,6 +22,8 @@ class AddSelectedLessonViewModel: BaseViewModel, CLLocationManagerDelegate {
     var deviceID: String?
     var GPSPermissionGranted = false
     
+    var lessons: [Lesson]?
+    
     // MARK: Initializer
     override init() {
         super.init()
@@ -76,13 +78,47 @@ class AddSelectedLessonViewModel: BaseViewModel, CLLocationManagerDelegate {
         return currentCoordinateRegion
     }
     
-//    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-//        guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
-//        print("locations = \(locValue.latitude) \(locValue.longitude)")
-//    }
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
+        print("locations = \(locValue.latitude) \(locValue.longitude)")
+    }
     
     // MARK: UUID Methods
     func setDeviceID() {
         deviceID = getUUID()
+    }
+    
+    func startLesson(newLesson: Lesson) {
+        print("asd newLesson id: ", newLesson.id)
+        UserDefaults.standard.set(true, forKey: "hasAddedLesson")
+        if let lessonsArray = UserDefaults.standard.data(forKey: "lecturerLessonsArray") {
+            do {
+                lessons = try JSONDecoder().decode([Lesson].self, from: lessonsArray)
+            } catch {
+                print("asd erro")
+            }
+            lessons?.append(newLesson)
+            do {
+                let lessonsArray = try JSONEncoder().encode(lessons)
+                UserDefaults.standard.set(lessonsArray, forKey: "lecturerLessonsArray")
+            } catch {
+                print("asd erro")
+            }
+        }
+    }
+    
+    func endLesson(lesson: Lesson) {
+        print("asd lesson id: ", lesson.id)
+        var updatedLesson = lesson
+        updatedLesson.attendance = 1
+        let index = lessons!.count
+        lessons?[index - 1] = updatedLesson
+        
+        do {
+            let lessonsArray = try JSONEncoder().encode(lessons)
+            UserDefaults.standard.set(lessonsArray, forKey: "lecturerLessonsArray")
+        } catch {
+            print("asd erro")
+        }
     }
 }

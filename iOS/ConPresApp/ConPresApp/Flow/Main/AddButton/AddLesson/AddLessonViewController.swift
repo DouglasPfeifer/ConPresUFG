@@ -24,9 +24,10 @@ class AddLessonViewController: BaseViewController {
     // MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         viewModel = AddLessonViewModel()
-
         todayLessonsLabel.text = Date().dayOfWeek()
         setupTableView()
     }
@@ -54,10 +55,12 @@ extension AddLessonViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // Start MOCK
-        return 1
+//        return 1
         // End MOCK
-        
-//        return viewModel.disciplines.count
+        if viewModel.disciplines.count == 0 {
+            tableView.setEmptyMessage(message: "Não há aulas para lecionar hoje")
+        }
+        return viewModel.disciplines.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

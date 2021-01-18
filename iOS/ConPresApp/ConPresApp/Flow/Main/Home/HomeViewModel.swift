@@ -10,13 +10,20 @@ import Foundation
 
 class HomeViewModel: BaseViewModel {
     
-    // MARK: Properties
-    var mock: Mock!
+    // MARK: Mock student
+//    var mock: Mock!
     var headerTitleArray = [String?]()
     var numberOfSections: Int! = 0
     var lessonsByHeader: [String: [Lesson]] = [String: [Lesson]]()
-    var lessons: [Lesson]? = nil
+    var lessons: [Lesson]?
     var selectedLesson: Lesson? = nil
+    
+    // MARK: Properties
+//    var headerTitleArray = [String?]()
+//    var numberOfSections: Int! = 0
+//    var lessonsByHeader: [String: [Lesson]] = [String: [Lesson]]()
+//    var lessons: [Lesson]? = nil
+//    var selectedLesson: Lesson? = nil
         
     // MARK: Initializer
     init(completion: @escaping (Bool) -> ()) {
@@ -24,14 +31,57 @@ class HomeViewModel: BaseViewModel {
 //        mock = Mock(userType: userType)
 //        lessons = mock.getLessons(userType: userType)
         
-        setSections()
-
-        getUserLessons { (success) in
-            if success {
-                self.setSections()
-                completion(success)
+        if userType == 0 {
+            let hasLoaded = UserDefaults.standard.bool(forKey: "hasLoadedStudent")
+            if hasLoaded {
+                if let lessonsArray = UserDefaults.standard.data(forKey: "studentLessonsArray") {
+                    do {
+                        lessons = try JSONDecoder().decode([Lesson].self, from: lessonsArray)
+                    } catch {
+                        print("asd erro")
+                    }
+                }
+            } else {
+                lessons = Manager.shared.studentLessons
+                do {
+                    let lessonsArray = try JSONEncoder().encode(lessons)
+                    UserDefaults.standard.set(lessonsArray, forKey: "studentLessonsArray")
+                } catch {
+                    print("asd erro")
+                }
+                UserDefaults.standard.set(true, forKey: "hasLoadedStudent")
+            }
+        } else if userType == 1 {
+            let hasLoaded = UserDefaults.standard.bool(forKey: "hasLoadedLecturer")
+            if hasLoaded {
+                if let lessonsArray = UserDefaults.standard.data(forKey: "lecturerLessonsArray") {
+                    do {
+                        lessons = try JSONDecoder().decode([Lesson].self, from: lessonsArray)
+                    } catch {
+                        print("asd erro")
+                    }
+                }
+            } else {
+                lessons = Manager.shared.lecturerLessons
+                do {
+                    let lessonsArray = try JSONEncoder().encode(lessons)
+                    UserDefaults.standard.set(lessonsArray, forKey: "lecturerLessonsArray")
+                } catch {
+                    print("asd erro")
+                }
+                UserDefaults.standard.set(true, forKey: "hasLoadedLecturer")
             }
         }
+        
+        setSections()
+        completion(true)
+        
+//        getUserLessons { (success) in
+//            if success {
+//                self.setSections()
+//                completion(success)
+//            }
+//        }
     }
     
     // MARK: TableView functions
@@ -42,7 +92,7 @@ class HomeViewModel: BaseViewModel {
         
         sortLessons()
 
-        numberOfSections = 0
+        numberOfSections = 1
         headerTitleArray.removeAll()
         lessonsByHeader.removeAll()
         var latestDay: Int! = -1
@@ -53,18 +103,19 @@ class HomeViewModel: BaseViewModel {
             if let day = lesson.startTime?.convertToDate().get(.day),
                let month = lesson.startTime?.convertToDate().get(.month),
                let year = lesson.startTime?.convertToDate().get(.year) {
-                if latestDay != day || latestMonth != month || latestYear != year {
-                    latestDay = day
-                    latestMonth = month
-                    latestYear = year
-                    headerTitle = "\(lesson.startTime?.convertToDate().dayOfWeek() ?? "Indefinido") - \(latestDay!)/\(latestMonth!)/\(latestYear!)"
-                    
-                    lessonsByHeader[headerTitle] = [Lesson]()
-                    lessonsByHeader[headerTitle]?.append(lesson)
-                    headerTitleArray.append(headerTitle)
-                    numberOfSections += 1
-                } else {
-                    lessonsByHeader[headerTitle]?.append(lesson)
+                if day == 19 {
+                    if latestDay != day || latestMonth != month || latestYear != year {
+                        latestDay = day
+                        latestMonth = month
+                        latestYear = year
+                        headerTitle = "\(lesson.startTime?.convertToDate().dayOfWeek() ?? "Indefinido") - \(latestDay!)/\(latestMonth!)/\(latestYear!)"
+                        
+                        lessonsByHeader[headerTitle] = [Lesson]()
+                        lessonsByHeader[headerTitle]?.append(lesson)
+                        headerTitleArray.append(headerTitle)
+                    } else {
+                        lessonsByHeader[headerTitle]?.append(lesson)
+                    }
                 }
             }
         }
